@@ -1,4 +1,4 @@
-export type ItemRarity = 'Common' | 'Uncommon' | 'Rare' | 'Very Rare' | 'Legendary';
+export type ItemRarity = 'Common' | 'Uncommon' | 'Rare' | 'Very rare' | 'Legendary';
 
 export type DamageType = 'Bludgeoning' | 'Piercing' | 'Slashing' | 'Magic';
 

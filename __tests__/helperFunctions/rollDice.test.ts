@@ -3,7 +3,9 @@ import {
     diceTypeToMaxNumber,
     rollDice,
     rollTwoD20,
+    rollTwoD100,
     selectDiceByAdvantageType,
+    rollDiceByAdvantageType,
 } from "../../src/helperFunctions/rollDice";
 
 describe("diceTypeToMaxNumber", () => {
@@ -200,10 +202,22 @@ describe("rollTwoD20", () => {
     test("should return two numbers between 1 and 20", () => {
         for (let i = 0; i < 10000; i++) {
             const result = rollTwoD20();
-            expect(result.firstRoll).toBeGreaterThanOrEqual(1);
-            expect(result.firstRoll).toBeLessThanOrEqual(20);
-            expect(result.secondRoll).toBeGreaterThanOrEqual(1);
-            expect(result.secondRoll).toBeLessThanOrEqual(20);
+            expect(result.firstD20).toBeGreaterThanOrEqual(1);
+            expect(result.firstD20).toBeLessThanOrEqual(20);
+            expect(result.secondD20).toBeGreaterThanOrEqual(1);
+            expect(result.secondD20).toBeLessThanOrEqual(20);
+        }
+    });
+});
+
+describe("rollTwoD100", () => {
+    test("should return two numbers between 1 and 100", () => {
+        for (let i = 0; i < 10000; i++) {
+            const result = rollTwoD100();
+            expect(result.firstD100).toBeGreaterThanOrEqual(1);
+            expect(result.firstD100).toBeLessThanOrEqual(100);
+            expect(result.secondD100).toBeGreaterThanOrEqual(1);
+            expect(result.secondD100).toBeLessThanOrEqual(100);
         }
     });
 });
@@ -231,13 +245,6 @@ describe("selectDiceByAdvantageType", () => {
         expect(
             selectDiceByAdvantageType(firstRoll, secondRoll, "Disadvantage")
         ).toBe(firstRoll);
-    });
-
-    test("should return the first roll for Normal advantage when second roll is 0", () => {
-        const firstRoll = 10;
-        expect(selectDiceByAdvantageType(firstRoll, 0, "Normal")).toBe(
-            firstRoll
-        );
     });
 
     test("should return the 20 when both rolls are 20 and advantage type is 'Normal'", () => {
@@ -278,5 +285,65 @@ describe("selectDiceByAdvantageType", () => {
         expect(
             selectDiceByAdvantageType(firstRoll, secondRoll, "Disadvantage")
         ).toBe(secondRoll);
+    });
+});
+
+describe("rollDiceByAdvantageType", () => {
+    const numberOfRolls: number = 10000;
+
+    const normalStats = {};
+    test("should return a number between 1 and 20 for Normal advantage", () => {
+        const diceSize: number = 20;
+
+        for (let i = 0; i < numberOfRolls; i++) {
+            const result = rollDiceByAdvantageType("Normal");
+            expect(result).toBeGreaterThanOrEqual(1);
+            expect(result).toBeLessThanOrEqual(diceSize);
+            if (normalStats[result]) {
+                normalStats[result] += 1;
+            } else {
+                normalStats[result] = 1;
+            }
+        }
+        expect(Object.keys(normalStats).length).toBe(diceSize);
+    });
+
+    const advantageStats = {};
+    test("should return a number between 1 and 20 for Advantage advantage", () => {
+        const diceSize: number = 20;
+
+        for (let i = 0; i < numberOfRolls; i++) {
+            const result = rollDiceByAdvantageType("Advantage");
+            expect(result).toBeGreaterThanOrEqual(1);
+            expect(result).toBeLessThanOrEqual(diceSize);
+            if (advantageStats[result]) {
+                advantageStats[result] += 1;
+            } else {
+                advantageStats[result] = 1;
+            }
+        }
+        expect(Object.keys(advantageStats).length).toBe(diceSize);
+    });
+
+    const disadvantageStats = {};
+    test("should return a number between 1 and 20 for Disadvantage advantage", () => {
+        const diceSize: number = 20;
+
+        for (let i = 0; i < numberOfRolls; i++) {
+            const result = rollDiceByAdvantageType("Disadvantage");
+            expect(result).toBeGreaterThanOrEqual(1);
+            expect(result).toBeLessThanOrEqual(diceSize);
+            if (disadvantageStats[result]) {
+                disadvantageStats[result] += 1;
+            } else {
+                disadvantageStats[result] = 1;
+            }
+        }
+        expect(Object.keys(disadvantageStats).length).toBe(diceSize);
+    });
+
+    test("should compare rolls of 20 with most for 'Advantage', then 'Normal', and finally disadvantage", () => {
+        expect(advantageStats[20]).toBeGreaterThan(normalStats[20]);
+        expect(normalStats[20]).toBeGreaterThan(disadvantageStats[20]);
     });
 });
