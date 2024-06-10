@@ -7,8 +7,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import FindMagicItems from './components/FindMagicItems';
 import CritHitsAndMisses from './components/CritHitsAndMisses';
+import GroupRolls from './components/GroupRolls';
 
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +22,7 @@ function App() {
           <Route path="/" element={<FindMagicItems />} />
           <Route path="/find-magic-items" element={<FindMagicItems />} />
           <Route path="/crit-hits-and-misses" element={<CritHitsAndMisses />} />
+          <Route path="/group-rolls" element={<GroupRolls />} />
         </Routes>
         </Router>
       </main>

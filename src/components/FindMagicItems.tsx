@@ -51,13 +51,13 @@ const FindMagicItems = () => {
                 <Typography variant="h5">Find Magic Items</Typography>
 
                 <div className="row-wrap-center-center sm-margin-vertical">
-                    <label id="item-rarity">Item Rarity:</label>
+                    <label htmlFor="item-rarity">Item Rarity:</label>
                     <Select
                         sx={{ minWidth: 150 }}
                         className="sm-margin-left"
                         defaultValue="Common"
                         labelId="item-rarity"
-                        id="item-rarity-select"
+                        id="item-rarity"
                         value={itemRarity}
                         label="Item Rarity"
                         onChange={handleRarityChange}

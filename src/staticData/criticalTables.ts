@@ -762,6 +762,4 @@ export const magicFumble = (spellLevel: SpellLevel, d100: number): {description:
             return MAGIC_FUMBLE_DATA["19"];
         }
     }
-
-    return {description: "", effect: ""};
 };

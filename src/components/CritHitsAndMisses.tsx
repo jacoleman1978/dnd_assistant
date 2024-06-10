@@ -58,11 +58,12 @@ const CritHitsAndMisses = () => {
             <FormControl>
                 <Typography variant="h5">Critical Hits and Misses</Typography>
                 <div className="row-wrap-center-center">
-                    <label id="critType" className="sm-margin-right">
+                    <label htmlFor="critType" className="sm-margin-right">
                         Crit Type:
                     </label>
                     <RadioGroup
                         row
+                        id="critType"
                         aria-label="critType"
                         name="critType"
                         defaultValue="Hit"
@@ -83,13 +84,13 @@ const CritHitsAndMisses = () => {
             </FormControl>
             <FormControl>
                 <div className="row-wrap-center-center sm-margin-vertical">
-                    <label id="char-level">Character Level:</label>
+                    <label htmlFor="char-level">Character Level:</label>
                     <Select
                         sx={{ minWidth: 150 }}
+                        id="char-level"
                         className="sm-margin-left"
                         defaultValue="5"
                         labelId="char-level"
-                        id="char-level-select"
                         value={charLevel.toString()}
                         label="Character Level"
                         onChange={handleCharLevelChange}
@@ -119,13 +120,13 @@ const CritHitsAndMisses = () => {
             </FormControl>
             <FormControl>
                 <div className="row-wrap-center-center sm-margin-vertical">
-                    <label id="damage-type">Damage type:</label>
+                    <label htmlFor="damage-type">Damage type:</label>
                     <Select
                         sx={{ minWidth: 150 }}
                         className="sm-margin-left"
                         defaultValue="Slashing"
                         labelId="damage-type"
-                        id="damage-type-select"
+                        id="damage-type"
                         value={damageType}
                         label="Damage Type"
                         onChange={handleDamageTypeChange}
@@ -140,13 +141,13 @@ const CritHitsAndMisses = () => {
             {damageType === "Magic" ? (
                 <FormControl>
                     <div className="row-wrap-center-center sm-margin-vertical">
-                        <label id="spell-level">Spell Level:</label>
+                        <label htmlFor="spell-level">Spell Level:</label>
                         <Select
                             sx={{ minWidth: 150 }}
                             className="sm-margin-left"
                             defaultValue="5"
                             labelId="spell-level"
-                            id="spell-level-select"
+                            id="spell-level"
                             value={spellLevel.toString()}
                             label="Spell Level"
                             onChange={handleSpellLevelChange}
