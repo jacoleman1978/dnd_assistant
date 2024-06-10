@@ -20,7 +20,7 @@ export const isItemFoundByRarity = (itemRarity: ItemRarity, percentOne: number, 
 export const rollMagicItemCost = (itemRarity: ItemRarity): number => {
     switch (itemRarity) {
         case 'Common':
-            return (rollDice("d6") + 1) * 100;
+            return (rollDice("d6") + 1) * 10;
         case 'Uncommon':
             return rollDice("d6") * 100;
         case 'Rare':

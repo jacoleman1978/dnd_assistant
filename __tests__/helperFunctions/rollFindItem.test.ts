@@ -157,46 +157,56 @@ describe("rollMagicItemCost", () => {
     test("should return the cost of a Common magic item", () => {
         const itemRarity = "Common";
 
-        const result = rollMagicItemCost(itemRarity);
+        for (let i = 0; i < 1000; i++) {
+            const result = rollMagicItemCost(itemRarity);
 
-        expect(result).toBeGreaterThanOrEqual(100);
-        expect(result).toBeLessThanOrEqual(600);
+            expect(result).toBeGreaterThanOrEqual(20);
+            expect(result).toBeLessThanOrEqual(700);
+        }
     });
 
     test("should return the cost of an Uncommon magic item", () => {
         const itemRarity = "Uncommon";
 
-        const result = rollMagicItemCost(itemRarity);
+        for (let i = 0; i < 1000; i++) {
+            const result = rollMagicItemCost(itemRarity);
 
-        expect(result).toBeGreaterThanOrEqual(100);
-        expect(result).toBeLessThanOrEqual(600);
+            expect(result).toBeGreaterThanOrEqual(100);
+            expect(result).toBeLessThanOrEqual(600);
+        }
     });
 
     test("should return the cost of a Rare magic item", () => {
         const itemRarity = "Rare";
 
-        const result = rollMagicItemCost(itemRarity);
+        for (let i = 0; i < 1000; i++) {
+            const result = rollMagicItemCost(itemRarity);
 
-        expect(result).toBeGreaterThanOrEqual(1000);
-        expect(result).toBeLessThanOrEqual(20000);
+            expect(result).toBeGreaterThanOrEqual(2000);
+            expect(result).toBeLessThanOrEqual(20000);
+        }
     });
 
     test("should return the cost of a Very rare magic item", () => {
         const itemRarity = "Very rare";
 
-        const result = rollMagicItemCost(itemRarity);
+        for (let i = 0; i < 1000; i++) {
+            const result = rollMagicItemCost(itemRarity);
 
-        expect(result).toBeGreaterThanOrEqual(10000);
-        expect(result).toBeLessThanOrEqual(50000);
+            expect(result).toBeGreaterThanOrEqual(20000);
+            expect(result).toBeLessThanOrEqual(50000);
+        }
     });
 
     test("should return the cost of a Legendary magic item", () => {
         const itemRarity = "Legendary";
 
-        const result = rollMagicItemCost(itemRarity);
+        for (let i = 0; i < 1000; i++) {
+            const result = rollMagicItemCost(itemRarity);
 
-        expect(result).toBeGreaterThanOrEqual(25000);
-        expect(result).toBeLessThanOrEqual(150000);
+            expect(result).toBeGreaterThanOrEqual(50000);
+            expect(result).toBeLessThanOrEqual(300000);
+        }
     });
 });
 
