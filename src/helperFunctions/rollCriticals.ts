@@ -1,5 +1,5 @@
 import { rollDice } from "./rollDice";
-import { DamageType, Level, SpellLevel } from "../staticData/types";
+import { DamageType, Level, SpellLevel, CritType } from "../staticData/types";
 import {
     bludgeoningCrit,
     slashingCrit,
@@ -8,6 +8,16 @@ import {
     weaponFumble,
     magicFumble,
 } from "../staticData/criticalTables";
+
+export const rollCritical = (critType: CritType, damageType: DamageType, charLevel: Level, spellLevel: SpellLevel = 0): string => {
+    if (critType === "Hit") {
+        return rollCriticalHit(damageType, charLevel, spellLevel);
+    } else if (critType === "Miss") {
+        return rollCriticalMiss(damageType, charLevel, spellLevel);
+    }
+
+    return "";
+};
 
 export const isCriticalHit = (level: Level, d100: number): boolean => {
     return d100 <= 10 + 5 * level;
@@ -25,6 +35,7 @@ export const criticalHitMessage = (
 
         if (damageType === "Bludgeoning") {
             message += bludgeoningCrit(secondD100);
+
             return message;
         } else if (damageType === "Slashing") {
             message += slashingCrit(secondD100);
@@ -81,7 +92,7 @@ export const criticalMissMessage = (
         const description = fumble.description;
 
         const effect = fumble.effect;
-        return `Uh oh... you rolled ${firstD100}%! It is a critical miss!\n${secondD100}% on the table: \nDescription: ${description}\nEffect: ${effect}`;
+        return `Uh oh... you rolled ${firstD100}%! It is a critical miss!\n${secondD100}% on the table: \nDescription: \n${description}\nEffect: \n${effect}`;
     } else if (isCritMiss) {
         let rolls: number[] = [];
 

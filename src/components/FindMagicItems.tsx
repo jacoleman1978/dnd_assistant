@@ -53,6 +53,7 @@ const FindMagicItems = () => {
                 <div className="row-wrap-center-center sm-margin-vertical">
                     <label id="item-rarity">Item Rarity:</label>
                     <Select
+                        sx={{ minWidth: 150 }}
                         className="sm-margin-left"
                         defaultValue="Common"
                         labelId="item-rarity"
@@ -104,7 +105,7 @@ const FindMagicItems = () => {
                 </Button>
                 </div>
                 
-                <Typography>{findResult}</Typography>
+                <Typography sx={{textAlign: "left", width: "100%"}}>{findResult}</Typography>
                 
             </FormControl>
         </div>

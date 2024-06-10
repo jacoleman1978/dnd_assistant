@@ -6,6 +6,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import FindMagicItems from './components/FindMagicItems';
+import CritHitsAndMisses from './components/CritHitsAndMisses';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Router>
         <Routes>
           <Route path="/" element={<FindMagicItems />} />
+          <Route path="/find-magic-items" element={<FindMagicItems />} />
+          <Route path="/crit-hits-and-misses" element={<CritHitsAndMisses />} />
         </Routes>
         </Router>
       </main>
