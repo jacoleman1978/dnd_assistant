@@ -1,6 +1,14 @@
 import { rollDice, rollTwoD100 } from "./rollDice";
 import { ItemRarity } from "../staticData/types";
 
+export const defaultRarityMap: {[key: string]: number} = {
+    'Common': 50,
+    'Uncommon': 30,
+    'Rare': 15,
+    'Very rare': 10,
+    'Legendary': 1,
+};
+
 export const isItemFoundByPercent = (findPercent: number, percentOne: number, percentTwo: number): boolean => {
     const difference = Math.abs(percentOne - percentTwo);
 
@@ -26,11 +34,7 @@ export const rollMagicItemCost = (itemRarity: ItemRarity): number => {
 
 export const findItemByRarity = (itemRarity: ItemRarity, findModifier: number = 0): string => {
     const rarityMap: {[key: string]: number} = {
-        'Common': 50,
-        'Uncommon': 30,
-        'Rare': 15,
-        'Very rare': 10,
-        'Legendary': 1,
+        ...defaultRarityMap,
     };
 
     let findPercent: number = rarityMap[itemRarity] + findModifier;
