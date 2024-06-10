@@ -1,153 +1,139 @@
 import { describe, expect, test } from "@jest/globals";
-import { isItemFoundByRarity, rollMagicItemCost, findItemByRarity } from "../../src/helperFunctions/rollFindItem";
+import { isItemFoundByPercent, rollMagicItemCost, findItemByRarity } from "../../src/helperFunctions/rollFindItem";
 
-describe("isItemFoundByRarity", () => {
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Common' rarity", () => {
-        const itemRarity = "Common";
+describe("isItemFoundByPercent", () => {
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Common' rarity, 50%", () => {
         const percentOne = 50;
         const percentTwo = 51;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(50, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Common' rarity", () => {
-        const itemRarity = "Common";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Common' rarity, 50%", () => {
         const percentOne = 51;
         const percentTwo = 50;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(50, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return false if the difference is greater than the rarityMap value for 'Common' rarity", () => {
-        const itemRarity = "Common";
+    test("should return false if the difference is greater than the rarityMap value for 'Common' rarity, 50%", () => {
         const percentOne = 10;
         const percentTwo = 61;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(50, percentOne, percentTwo);
 
         expect(result).toBe(false);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Uncommon' rarity", () => {
-        const itemRarity = "Uncommon";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Uncommon' rarity, 30%", () => {
         const percentOne = 30;
         const percentTwo = 31;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(30, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Uncommon' rarity", () => {
-        const itemRarity = "Uncommon";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Uncommon' rarity, 30%", () => {
         const percentOne = 31;
         const percentTwo = 30;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(30, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return false if the difference is greater than the rarityMap value for 'Uncommon' rarity", () => {
-        const itemRarity = "Uncommon";
+    test("should return false if the difference is greater than the rarityMap value for 'Uncommon' rarity, 30%", () => {
         const percentOne = 10;
         const percentTwo = 41;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(30, percentOne, percentTwo);
 
         expect(result).toBe(false);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Rare' rarity", () => {
-        const itemRarity = "Rare";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Rare' rarity, 15%", () => {
         const percentOne = 15;
         const percentTwo = 16;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(15, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Rare' rarity", () => {
-        const itemRarity = "Rare";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Rare' rarity, 15%", () => {
         const percentOne = 16;
         const percentTwo = 15;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(15, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return false if the difference is greater than the rarityMap value for 'Rare' rarity", () => {
+    test("should return false if the difference is greater than the rarityMap value for 'Rare' rarity, 15%", () => {
         const itemRarity = "Rare";
         const percentOne = 10;
         const percentTwo = 26;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(15, percentOne, percentTwo);
 
         expect(result).toBe(false);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Very rare' rarity", () => {
-        const itemRarity = "Very rare";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Very rare' rarity, 10%", () => {
         const percentOne = 10;
         const percentTwo = 11;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(10, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Very rare' rarity", () => {
-        const itemRarity = "Very rare";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Very rare' rarity, 10%", () => {
         const percentOne = 11;
         const percentTwo = 10;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(10, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return false if the difference is greater than the rarityMap value for 'Very rare' rarity", () => {
-        const itemRarity = "Very rare";
+    test("should return false if the difference is greater than the rarityMap value for 'Very rare' rarity, 10%", () => {
         const percentOne = 10;
         const percentTwo = 21;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(10, percentOne, percentTwo);
 
         expect(result).toBe(false);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Legendary' rarity", () => {
-        const itemRarity = "Legendary";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Legendary' rarity, 1%", () => {
         const percentOne = 1;
         const percentTwo = 2;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(1, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return true if the difference is less than or equal to the rarityMap value for 'Legendary' rarity", () => {
-        const itemRarity = "Legendary";
+    test("should return true if the difference is less than or equal to the rarityMap value for 'Legendary' rarity, 1%", () => {
         const percentOne = 2;
         const percentTwo = 1;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(1, percentOne, percentTwo);
 
         expect(result).toBe(true);
     });
 
-    test("should return false if the difference is greater than the rarityMap value for 'Legendary' rarity", () => {
-        const itemRarity = "Legendary";
+    test("should return false if the difference is greater than the rarityMap value for 'Legendary' rarity, 1%", () => {
         const percentOne = 1;
         const percentTwo = 6;
 
-        const result = isItemFoundByRarity(itemRarity, percentOne, percentTwo);
+        const result = isItemFoundByPercent(1, percentOne, percentTwo);
 
         expect(result).toBe(false);
     });
@@ -239,5 +225,45 @@ describe("findItemByRarity", () => {
         const message: string = findItemByRarity("Legendary");
 
         expect(message).toMatch(/Legendary has a 1% find percentage and you rolled a \d+%./);
+    });
+
+    test("should return an item not found message when the findModifier makes the find percentage <= 0", () => {
+        let message: string = findItemByRarity("Common", -60);
+        expect(message).toMatch(/Common has a 0% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Uncommon", -30);
+        expect(message).toMatch(/Uncommon has a 0% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Rare", -15);
+        expect(message).toMatch(/Rare has a 0% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Very rare", -10);
+        expect(message).toMatch(/Very rare has a 0% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Legendary", -1);
+        expect(message).toMatch(/Legendary has a 0% find percentage and you rolled a \d+%./);
+    });
+
+    test("should return an item found message when the findModifier makes the find percentage >= 100", () => {
+        let message: string = findItemByRarity("Common", 60);
+        expect(message).toMatch(/Common has a 100% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Uncommon", 70);
+        expect(message).toMatch(/Uncommon has a 100% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Rare", 85);
+        expect(message).toMatch(/Rare has a 100% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Very rare", 90);
+        expect(message).toMatch(/Very rare has a 100% find percentage and you rolled a \d+%./);
+
+        message = findItemByRarity("Legendary", 99);
+        expect(message).toMatch(/Legendary has a 100% find percentage and you rolled a \d+%./);
+    });
+
+    test("should return a message whether a magic item was found or not for 'Common' rarity with a find modifier", () => {
+        const message: string = findItemByRarity("Common", 10);
+
+        expect(message).toMatch(/Common has a 60% find percentage and you rolled a \d+%./);
     });
 });
