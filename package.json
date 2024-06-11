@@ -31,13 +31,16 @@
     "@babel/preset-typescript": "^7.24.7",
     "@jest/globals": "^29.7.0",
     "babel-jest": "^29.7.0",
+    "gh-pages": "^6.1.1",
     "jest": "^29.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -56,5 +59,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://jacoleman1978.github.io/dnd_assistant/"
 }

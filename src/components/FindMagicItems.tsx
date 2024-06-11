@@ -16,7 +16,9 @@ import { ItemRarity } from "../staticData/types";
 
 const FindMagicItems = () => {
     const [itemRarity, setItemRarity] = useState<ItemRarity>("Common");
-    const [findModifier, setFindModifier] = useState<number>(defaultRarityMap["Common"]);
+    const [findModifier, setFindModifier] = useState<number>(
+        defaultRarityMap["Common"]
+    );
     const [findResult, setFindResult] = useState<string>("");
 
     const handleRarityChange = (event: SelectChangeEvent) => {
@@ -26,7 +28,12 @@ const FindMagicItems = () => {
     };
 
     const handleFindItemClick = () => {
-        setFindResult(findItemByRarity(itemRarity, findModifier - defaultRarityMap[itemRarity]));
+        setFindResult(
+            findItemByRarity(
+                itemRarity,
+                findModifier - defaultRarityMap[itemRarity]
+            )
+        );
     };
 
     const handleIncreaseFindModifier = () => {
@@ -47,13 +54,15 @@ const FindMagicItems = () => {
 
     return (
         <div className="card">
-            <FormControl>
-                <Typography variant="h5">Find Magic Items</Typography>
+            <Typography variant="h5">Find Magic Items</Typography>
 
+            <FormControl>
                 <div className="row-wrap-center-center sm-margin-vertical">
-                    <label htmlFor="item-rarity">Item Rarity:</label>
+                    <label>Item Rarity:</label>
+
                     <Select
                         sx={{ minWidth: 150 }}
+                        name="item-rarity"
                         className="sm-margin-left"
                         defaultValue="Common"
                         labelId="item-rarity"
@@ -69,31 +78,32 @@ const FindMagicItems = () => {
                         <MenuItem value={"Legendary"}>Legendary</MenuItem>
                     </Select>
                 </div>
+            </FormControl>
 
-                <div className="row-wrap-center-center sm-margin-bottom">
-                    <Typography>{`Find percentage for ${itemRarity.toLowerCase()}: ${
-                        findModifier < 0 ? 0 : findModifier
-                    }%`}</Typography>
-                    <div>
-                        <Button
-                            sx={{ marginLeft: 1, marginRight: 1}}
-                            variant="outlined"
-                            color="success"
-                            onClick={handleIncreaseFindModifier}
-                        >
-                            +
-                        </Button>
-                        <Button
-                            variant="outlined"
-                            color="error"
-                            onClick={handleDecreaseFindModifier}
-                        >
-                            -
-                        </Button>
-                    </div>
+            <div className="row-wrap-center-center sm-margin-bottom">
+                <Typography>{`Find percentage for ${itemRarity.toLowerCase()}: ${
+                    findModifier < 0 ? 0 : findModifier
+                }%`}</Typography>
+                <div>
+                    <Button
+                        sx={{ marginLeft: 1, marginRight: 1 }}
+                        variant="outlined"
+                        color="success"
+                        onClick={handleIncreaseFindModifier}
+                    >
+                        +
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        onClick={handleDecreaseFindModifier}
+                    >
+                        -
+                    </Button>
                 </div>
+            </div>
 
-                <div className="row-wrap-center-center">
+            <div className="row-wrap-center-center">
                 <Button
                     sx={{ marginBottom: 1, width: 200 }}
                     variant="outlined"
@@ -103,11 +113,11 @@ const FindMagicItems = () => {
                 >
                     Look for Item
                 </Button>
-                </div>
-                
-                <Typography sx={{textAlign: "left", width: "100%"}}>{findResult}</Typography>
-                
-            </FormControl>
+            </div>
+
+            <Typography sx={{ textAlign: "left", width: "100%" }}>
+                {findResult}
+            </Typography>
         </div>
     );
 };

@@ -247,7 +247,7 @@ export const weaponFumble = (d100: number): string => {
         ];
 
         return `Weapon knocked away ${rollDice("d10")} feet to the ${
-            directions[rollDice("d8")]
+            directions[Number(rollDice("d8"))]
         }.`;
     } else if (d100 < 75) {
         return "Weapon breaks (base 100% -20% for each '+' or ability of weapon.";

@@ -92,3 +92,21 @@
 .flex-2 {
   flex: 2;
 }
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
