@@ -1,7 +1,47 @@
 import { describe, expect, test } from "@jest/globals";
-import { isItemFoundByPercent, rollMagicItemCost, findItemByRarity } from "../../src/helperFunctions/rollFindItem";
+import {
+    isItemFoundByPercent,
+    rollMagicItemCost,
+    findItemByRarity,
+} from "../../src/helperFunctions/rollFindItem";
 
 describe("isItemFoundByPercent", () => {
+    test("should throw an error if findPercent is less than 0", () => {
+        expect(() => isItemFoundByPercent(-1, 10, 20)).toThrow(
+            "Find percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
+    test("should throw an error if findPercent is greater than 100", () => {
+        expect(() => isItemFoundByPercent(101, 10, 20)).toThrow(
+            "Find percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
+    test("should throw an error if percentOne is less than 0", () => {
+        expect(() => isItemFoundByPercent(10, -1, 20)).toThrow(
+            "First percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
+    test("should throw an error if percentOne is greater than 100", () => {
+        expect(() => isItemFoundByPercent(10, 101, 20)).toThrow(
+            "First percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
+    test("should throw an error if percentTwo is less than 0", () => {
+        expect(() => isItemFoundByPercent(10, 10, -1)).toThrow(
+            "Second percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
+    test("should throw an error if percentTwo is greater than 100", () => {
+        expect(() => isItemFoundByPercent(10, 10, 101)).toThrow(
+            "Second percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    });
+
     test("should return true if the difference is less than or equal to the rarityMap value for 'Common' rarity, 50%", () => {
         const percentOne = 50;
         const percentTwo = 51;
@@ -197,73 +237,111 @@ describe("rollMagicItemCost", () => {
 });
 
 describe("findItemByRarity", () => {
+    test("should throw an error if findModifier is less than -100", () => {
+        expect(() => findItemByRarity("Common", -101)).toThrow(
+            "Find modifier must be between -100 and 100 for findItemByRarity."
+        );
+    });
+
     test("should return a message whether a magic item was found or not for 'Common' rarity", () => {
         const message: string = findItemByRarity("Common");
 
-        expect(message).toMatch(/Common has a 50% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Common has a 50% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return a message whether a magic item was found or not for 'Uncommon' rarity", () => {
         const message: string = findItemByRarity("Uncommon");
 
-        expect(message).toMatch(/Uncommon has a 30% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Uncommon has a 30% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return a message whether a magic item was found or not for 'Rare' rarity", () => {
         const message: string = findItemByRarity("Rare");
 
-        expect(message).toMatch(/Rare has a 15% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Rare has a 15% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return a message whether a magic item was found or not for 'Very rare' rarity", () => {
         const message: string = findItemByRarity("Very rare");
 
-        expect(message).toMatch(/Very rare has a 10% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Very rare has a 10% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return a message whether a magic item was found or not for 'Legendary' rarity", () => {
         const message: string = findItemByRarity("Legendary");
 
-        expect(message).toMatch(/Legendary has a 1% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Legendary has a 1% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return an item not found message when the findModifier makes the find percentage <= 0", () => {
         let message: string = findItemByRarity("Common", -60);
-        expect(message).toMatch(/Common has a 0% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Common has a 0% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Uncommon", -30);
-        expect(message).toMatch(/Uncommon has a 0% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Uncommon has a 0% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Rare", -15);
-        expect(message).toMatch(/Rare has a 0% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Rare has a 0% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Very rare", -10);
-        expect(message).toMatch(/Very rare has a 0% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Very rare has a 0% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Legendary", -1);
-        expect(message).toMatch(/Legendary has a 0% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Legendary has a 0% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return an item found message when the findModifier makes the find percentage >= 100", () => {
         let message: string = findItemByRarity("Common", 60);
-        expect(message).toMatch(/Common has a 100% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Common has a 100% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Uncommon", 70);
-        expect(message).toMatch(/Uncommon has a 100% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Uncommon has a 100% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Rare", 85);
-        expect(message).toMatch(/Rare has a 100% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Rare has a 100% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Very rare", 90);
-        expect(message).toMatch(/Very rare has a 100% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Very rare has a 100% find percentage and you rolled a \d+%./
+        );
 
         message = findItemByRarity("Legendary", 99);
-        expect(message).toMatch(/Legendary has a 100% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Legendary has a 100% find percentage and you rolled a \d+%./
+        );
     });
 
     test("should return a message whether a magic item was found or not for 'Common' rarity with a find modifier", () => {
         const message: string = findItemByRarity("Common", 10);
 
-        expect(message).toMatch(/Common has a 60% find percentage and you rolled a \d+%./);
+        expect(message).toMatch(
+            /Common has a 60% find percentage and you rolled a \d+%./
+        );
     });
 });

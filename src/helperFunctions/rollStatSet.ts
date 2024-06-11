@@ -2,17 +2,17 @@ import { rollDice } from "./rollDice";
 
 /**
  * Rolls a single stat using 4d6 drop lowest method, ensuring that all stats are at least a certain value.
- * @param minimumStatAllowed An integer between 3 and 18 representing the minimum value allowed for a stat, with a default value of 3.
- * @returns A single stat between 3 and 18.
+ * @param minimumStatAllowed An integer between 3 and 10 representing the minimum value allowed for a stat, with a default value of 3.
+ * @returns A single stat between 3 and 10.
  */
 export const rollStat = (minimumStatAllowed: number = 3): number => {
     if (minimumStatAllowed < 3)
         throw new Error(
             "Minimum stat allowed must be 3 or greater for rollStat."
         );
-    if (minimumStatAllowed > 18)
+    if (minimumStatAllowed > 10)
         throw new Error(
-            "Minimum stat allowed must be 18 or less for rollStat."
+            "Minimum stat allowed must be 10 or less for rollStat."
         );
 
     let total = 0;

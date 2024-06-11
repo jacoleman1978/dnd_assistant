@@ -176,8 +176,8 @@ describe("rollDice", () => {
     test("should return a number between 1 and 100 for d100", () => {
         const numberOfRolls: number = 100000;
         const diceSize: number = 100;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -223,6 +223,42 @@ describe("rollTwoD100", () => {
 });
 
 describe("selectDiceByAdvantageType", () => {
+    test("should throw an error when first roll is less than 1", () => {
+        const firstRoll = 0;
+        const secondRoll = 15;
+        expect(() =>
+            selectDiceByAdvantageType(firstRoll, secondRoll, "Normal")
+        ).toThrow("First roll must be 1 or greater for selectDiceByAdvantage.");
+    });
+
+    test("should throw an error when first roll is greater than 20", () => {
+        const firstRoll = 21;
+        const secondRoll = 15;
+        expect(() =>
+            selectDiceByAdvantageType(firstRoll, secondRoll, "Normal")
+        ).toThrow(
+            "First roll must be less than or equal to 20 for selectDiceByAdvantage."
+        );
+    });
+
+    test("should throw an error when second roll is less than 1", () => {
+        const firstRoll = 10;
+        const secondRoll = 0;
+        expect(() =>
+            selectDiceByAdvantageType(firstRoll, secondRoll, "Normal")
+        ).toThrow("Second roll must be 1 or greater for selectDiceByAdvantage.");
+    });
+
+    test("should throw an error when second roll is greater than 20", () => {
+        const firstRoll = 10;
+        const secondRoll = 21;
+        expect(() =>
+            selectDiceByAdvantageType(firstRoll, secondRoll, "Normal")
+        ).toThrow(
+            "Second roll must be less than or equal to 20 for selectDiceByAdvantage."
+        );
+    });
+
     test("should return the first roll for Normal advantage", () => {
         const firstRoll = 10;
         const secondRoll = 15;

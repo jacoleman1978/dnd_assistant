@@ -35,6 +35,30 @@ export const getGroupRollResults = (
         spellLevel,
     } = groupRollInputs;
 
+    if (numberOfRolls < 1) {
+        throw new Error(
+            "Number of rolls must be at least 1 for getGroupRollResults."
+        );
+    }
+
+    if (numberOfRolls > 50) {
+        throw new Error(
+            "Number of rolls must be 50 or fewer for getGroupRollResults."
+        );
+    }
+
+    if (targetDC < 1) {
+        throw new Error(
+            "Target DC must be at least 1 for getGroupRollResults."
+        );
+    }
+
+    if (targetDC > 50) {
+        throw new Error(
+            "Target DC must be 50 or fewer for getGroupRollResults."
+        );
+    }
+
     const groupRolls: GroupRolls = rollD20sForGroup(
         numberOfRolls,
         advantageType

@@ -22,6 +22,22 @@ export const isItemFoundByPercent = (
     percentOne: number,
     percentTwo: number
 ): boolean => {
+    if (findPercent < 0 || findPercent > 100) {
+        throw new Error(
+            "Find percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    }
+    if (percentOne < 0 || percentOne > 100) {
+        throw new Error(
+            "First percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    }
+    if (percentTwo < 0 || percentTwo > 100) {
+        throw new Error(
+            "Second percentage must be between 0 and 100 for isItemFoundByPercent."
+        );
+    }
+
     const difference = Math.abs(percentOne - percentTwo);
 
     if (difference <= findPercent) return true;
@@ -59,6 +75,12 @@ export const findItemByRarity = (
     itemRarity: ItemRarity,
     findModifier: number = 0
 ): string => {
+    if (findModifier < -100 || findModifier > 100) {
+        throw new Error(
+            "Find modifier must be between -100 and 100 for findItemByRarity."
+        );
+    }
+
     const rarityMap: { [key: string]: number } = {
         ...defaultRarityMap,
     };
