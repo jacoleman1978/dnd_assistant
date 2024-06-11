@@ -25,23 +25,25 @@ const DamageTypeSelect = ({ damageType, setGroupInputs }: DamageTypeProps) => {
     return (
         <FormControl>
             <div className="row-wrap-center-center sm-margin-vertical">
-                <label>Damage type:</label>
-                <Select
-                    sx={{ minWidth: 150 }}
-                    name="damage-type"
-                    className="sm-margin-left"
-                    defaultValue="Slashing"
-                    labelId="damage-type"
-                    id="damage-type"
-                    value={damageType}
-                    label="Damage Type"
-                    onChange={handleDamageTypeChange}
-                >
-                    <MenuItem value={"Slashing"}>Slashing</MenuItem>
-                    <MenuItem value={"Bludgeoning"}>Bludgeoning</MenuItem>
-                    <MenuItem value={"Piercing"}>Piercing</MenuItem>
-                    <MenuItem value={"Magic"}>Magic</MenuItem>
-                </Select>
+                <label>
+                    Damage type:
+                    <Select
+                        sx={{ minWidth: 150 }}
+                        name="damage-type"
+                        className="sm-margin-left"
+                        defaultValue="Slashing"
+                        labelId="damage-type"
+                        id="damage-type"
+                        value={damageType}
+                        label="Damage Type"
+                        onChange={handleDamageTypeChange}
+                    >
+                        <MenuItem value={"Slashing"}>Slashing</MenuItem>
+                        <MenuItem value={"Bludgeoning"}>Bludgeoning</MenuItem>
+                        <MenuItem value={"Piercing"}>Piercing</MenuItem>
+                        <MenuItem value={"Magic"}>Magic</MenuItem>
+                    </Select>
+                </label>
             </div>
         </FormControl>
     );

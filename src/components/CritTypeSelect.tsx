@@ -23,26 +23,29 @@ const CritTypeSelect = ({ setCritType }: CritTypeSelectProps) => {
     return (
         <FormControl>
             <div className="row-wrap-center-center">
-                <label className="sm-margin-right">Crit Type:</label>
-                <RadioGroup
-                    row
-                    id="critType"
-                    aria-label="critType"
-                    name="critType"
-                    defaultValue="Hit"
-                    onChange={handleCritTypeChange}
-                >
-                    <FormControlLabel
-                        value="Hit"
-                        control={<Radio />}
-                        label="Hit"
-                    />
-                    <FormControlLabel
-                        value="Miss"
-                        control={<Radio />}
-                        label="Miss"
-                    />
-                </RadioGroup>
+                <label className="sm-margin-right row-wrap-center-center">
+                    Crit Type:
+                    <RadioGroup
+                        row
+                        id="critType"
+                        className="sm-margin-left"
+                        aria-label="critType"
+                        name="critType"
+                        defaultValue="Hit"
+                        onChange={handleCritTypeChange}
+                    >
+                        <FormControlLabel
+                            value="Hit"
+                            control={<Radio />}
+                            label="Hit"
+                        />
+                        <FormControlLabel
+                            value="Miss"
+                            control={<Radio />}
+                            label="Miss"
+                        />
+                    </RadioGroup>
+                </label>
             </div>
         </FormControl>
     );

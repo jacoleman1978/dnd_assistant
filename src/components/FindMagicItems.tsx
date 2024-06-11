@@ -59,25 +59,26 @@ const FindMagicItems = () => {
 
             <FormControl>
                 <div className="row-wrap-center-center sm-margin-vertical">
-                    <label>Item Rarity:</label>
-
-                    <Select
-                        sx={{ minWidth: 150 }}
-                        name="item-rarity"
-                        className="sm-margin-left"
-                        defaultValue="Common"
-                        labelId="item-rarity"
-                        id="item-rarity"
-                        value={itemRarity}
-                        label="Item Rarity"
-                        onChange={handleRarityChange}
-                    >
-                        <MenuItem value={"Common"}>Common</MenuItem>
-                        <MenuItem value={"Uncommon"}>Uncommon</MenuItem>
-                        <MenuItem value={"Rare"}>Rare</MenuItem>
-                        <MenuItem value={"Very rare"}>Very rare</MenuItem>
-                        <MenuItem value={"Legendary"}>Legendary</MenuItem>
-                    </Select>
+                    <label>
+                        Item Rarity:
+                        <Select
+                            sx={{ minWidth: 150 }}
+                            name="item-rarity"
+                            className="sm-margin-left"
+                            defaultValue="Common"
+                            labelId="item-rarity"
+                            id="item-rarity"
+                            value={itemRarity}
+                            label="Item Rarity"
+                            onChange={handleRarityChange}
+                        >
+                            <MenuItem value={"Common"}>Common</MenuItem>
+                            <MenuItem value={"Uncommon"}>Uncommon</MenuItem>
+                            <MenuItem value={"Rare"}>Rare</MenuItem>
+                            <MenuItem value={"Very rare"}>Very rare</MenuItem>
+                            <MenuItem value={"Legendary"}>Legendary</MenuItem>
+                        </Select>
+                    </label>
                 </div>
             </FormControl>
 
