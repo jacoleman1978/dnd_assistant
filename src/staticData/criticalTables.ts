@@ -1,6 +1,14 @@
 import { rollDice } from "../helperFunctions/rollDice";
 import { SpellLevel } from "./types";
 
+// The melee crit tables were published by Carl Parlagreco, "Good Hits & Bad Misses", in Dragon #39 (July, 1980).
+// Magic crits were posted on https://d20despot.blogspot.com/2015/07/critical-hit-tables-scaling-crits-for.html Monday, July 13, 2015.
+
+/**
+ * Returns a string describing the result of a bludgeoning critical hit.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns A string describing the result of a bludgeoning critical hit.
+ */
 export const bludgeoningCrit = (d100: number): string => {
     if (d100 < 32) {
         return "x2 damage";
@@ -63,6 +71,11 @@ export const bludgeoningCrit = (d100: number): string => {
     return "";
 };
 
+/**
+ * Returns a string describing the result of a piercing critical hit.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns A string describing the result of a piercing critical hit.
+ */
 export const piercingCrit = (d100: number): string => {
     if (d100 < 35) {
         return "x2 damage";
@@ -119,6 +132,11 @@ export const piercingCrit = (d100: number): string => {
     return "";
 };
 
+/**
+ * Returns a string describing the result of a slashing critical hit.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns A string describing the result of a slashing critical hit.
+ */
 export const slashingCrit = (d100: number): string => {
     if (d100 < 32) {
         return "x2 damage";
@@ -209,6 +227,11 @@ export const slashingCrit = (d100: number): string => {
     return "";
 };
 
+/**
+ * Returns a string describing the result of a fumble with a weapon.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns A string describing the result of a fumble with a weapon.
+ */
 export const weaponFumble = (d100: number): string => {
     if (d100 < 20) {
         return `Slip. Roll dexterity or less on d20 or fall and be stunned for ${rollDice(
@@ -280,10 +303,11 @@ export const weaponFumble = (d100: number): string => {
     } else if (d100 === 100) {
         return "Roll three times. Ignore rolls of 99 or 100.";
     }
-    
+
     return "";
 };
 
+// The magic crit table was posted on https://d20despot.blogspot.com/2015/07/critical-hit-tables-scaling-crits-for.html Monday, July 13, 2015.
 export const MAGIC_CRIT_TABLE: { [key: string]: string } = {
     "01": "Empowered Spell - all variable numerical effects increased by 50%",
     "02": "Extended Spell - double duration; instantaneous spells happen again next turn",
@@ -327,6 +351,12 @@ export const MAGIC_CRIT_TABLE: { [key: string]: string } = {
     "40": "Planar Shift - x4 and target is shifted to a random plane (Will save negates)",
 };
 
+/**
+ * Returns a string describing the result of a critical hit with a spell, dependent upon the spell level.
+ * @param spellLevel A SpellLevel type literal representing the level of the spell from 0 to 9.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns A string describing the result of a critical hit with a spell.
+ */
 export const magicCrit = (spellLevel: SpellLevel, d100: number): string => {
     if (spellLevel <= 2) {
         if (d100 <= 85) {
@@ -565,6 +595,7 @@ export const magicCrit = (spellLevel: SpellLevel, d100: number): string => {
     return "";
 };
 
+// A table containing all of the different possible magic fumble results.
 export const MAGIC_FUMBLE_DATA: {
     [key: string]: { description: string; effect: string };
 } = {
@@ -662,7 +693,16 @@ export const MAGIC_FUMBLE_DATA: {
     },
 };
 
-export const magicFumble = (spellLevel: SpellLevel, d100: number): {description: string, effect: string} => {
+/**
+ * Returns an object containing a description and effect of a magic fumble, depending on the level of spell cast.
+ * @param spellLevel A SpellLevel type literal representing the level of the spell from 0 to 9.
+ * @param d100 A number between 1 and 100 representing the result of a d100 roll.
+ * @returns An object containing a description and effect of a magic fumble.
+ */
+export const magicFumble = (
+    spellLevel: SpellLevel,
+    d100: number
+): { description: string; effect: string } => {
     if (spellLevel <= 2) {
         if (d100 <= 10) {
             return MAGIC_FUMBLE_DATA["01"];
