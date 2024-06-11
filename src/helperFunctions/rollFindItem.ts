@@ -2,12 +2,12 @@ import { rollDice, rollTwoD100 } from "./rollDice";
 import { ItemRarity } from "../staticData/types";
 
 // Default percentages to find magic items of each rarity
-export const defaultRarityMap: {[key: string]: number} = {
-    'Common': 50,
-    'Uncommon': 30,
-    'Rare': 15,
-    'Very rare': 10,
-    'Legendary': 1,
+export const defaultRarityMap: { [key: string]: number } = {
+    Common: 50,
+    Uncommon: 30,
+    Rare: 15,
+    "Very rare": 10,
+    Legendary: 1,
 };
 
 /**
@@ -17,12 +17,16 @@ export const defaultRarityMap: {[key: string]: number} = {
  * @param percentTwo A number representing the second percentage to compare
  * @returns A boolean indicating whether the magic item was found
  */
-export const isItemFoundByPercent = (findPercent: number, percentOne: number, percentTwo: number): boolean => {
+export const isItemFoundByPercent = (
+    findPercent: number,
+    percentOne: number,
+    percentTwo: number
+): boolean => {
     const difference = Math.abs(percentOne - percentTwo);
 
     if (difference <= findPercent) return true;
 
-    return false
+    return false;
 };
 
 /**
@@ -32,15 +36,15 @@ export const isItemFoundByPercent = (findPercent: number, percentOne: number, pe
  */
 export const rollMagicItemCost = (itemRarity: ItemRarity): number => {
     switch (itemRarity) {
-        case 'Common':
+        case "Common":
             return (rollDice("d6") + 1) * 10;
-        case 'Uncommon':
+        case "Uncommon":
             return rollDice("d6") * 100;
-        case 'Rare':
+        case "Rare":
             return (rollDice("d10") + rollDice("d10")) * 1000;
-        case 'Very rare':
+        case "Very rare":
             return (rollDice("d4") + 1) * 10000;
-        case 'Legendary':
+        case "Legendary":
             return (rollDice("d6") + rollDice("d6")) * 25000;
     }
 };
@@ -51,8 +55,11 @@ export const rollMagicItemCost = (itemRarity: ItemRarity): number => {
  * @param findModifier A number representing the modifier to the find percentage with a default value of 0. It allows for a DM to adjust the find rate based on the campaign, location, or other factors.
  * @returns A string with the results of the find magic item roll, including a cost in gold if the item is found
  */
-export const findItemByRarity = (itemRarity: ItemRarity, findModifier: number = 0): string => {
-    const rarityMap: {[key: string]: number} = {
+export const findItemByRarity = (
+    itemRarity: ItemRarity,
+    findModifier: number = 0
+): string => {
+    const rarityMap: { [key: string]: number } = {
         ...defaultRarityMap,
     };
 
@@ -75,9 +82,14 @@ export const findItemByRarity = (itemRarity: ItemRarity, findModifier: number = 
     if (isItemFound) {
         const magicItemCost = rollMagicItemCost(itemRarity);
 
-        return `${itemRarity} has a ${findPercent}% find percentage and you rolled a ${Math.abs(firstD100 - secondD100)}%. The ${itemRarity.toLowerCase()} magic item was found for ${magicItemCost.toLocaleString("en-US")} gold!`
-
+        return `${itemRarity} has a ${findPercent}% find percentage and you rolled a ${Math.abs(
+            firstD100 - secondD100
+        )}%. The ${itemRarity.toLowerCase()} magic item was found for ${magicItemCost.toLocaleString(
+            "en-US"
+        )} gold!`;
     } else {
-        return `${itemRarity} has a ${findPercent}% find percentage and you rolled a ${Math.abs(firstD100 - secondD100)}%. No ${itemRarity.toLowerCase()} magic item was found. Please check back another day.`
+        return `${itemRarity} has a ${findPercent}% find percentage and you rolled a ${Math.abs(
+            firstD100 - secondD100
+        )}%. No ${itemRarity.toLowerCase()} magic item was found. Please check back another day.`;
     }
 };

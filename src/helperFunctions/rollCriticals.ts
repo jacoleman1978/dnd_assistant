@@ -25,7 +25,6 @@ export const rollCritical = (
 ): string => {
     if (critType === "Hit") {
         return rollCriticalHit(damageType, charLevel, spellLevel);
-
     } else if (critType === "Miss") {
         return rollCriticalMiss(damageType, charLevel, spellLevel);
     }
@@ -50,7 +49,7 @@ export const isCriticalHit = (level: Level, d100: number): boolean => {
  * @param firstd100 A random number from 1 to 100
  * @param secondD100 A random number from 1 to 100
  * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
- * @returns 
+ * @returns
  */
 export const criticalHitMessage = (
     damageType: DamageType,
@@ -88,7 +87,7 @@ export const criticalHitMessage = (
  * @param damageType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
  * @param charLevel A Level type literal with numbers from 1 to 20
  * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
- * @returns 
+ * @returns
  */
 export const rollCriticalHit = (
     damageType: DamageType,
@@ -127,7 +126,7 @@ export const isCriticalMiss = (charLevel: Level, d100: number) => {
  * @param charLevel A Level type literal with numbers from 1 to 20
  * @param firstD100 A random number from 1 to 100
  * @param secondD100 A random number from 1 to 100
-* @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
  * @returns A string with the critical miss message
  */
 export const criticalMissMessage = (
