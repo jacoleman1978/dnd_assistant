@@ -11,11 +11,18 @@ interface SucceededStatsDisplayProps {
     setGroupRollStats: React.Dispatch<React.SetStateAction<GroupRollStats>>;
 }
 
+/**
+ * A display for showing who succeeded a group roll and who had normal and table critical hits.
+ * @param groupRollType The type of group roll: attacks or saves
+ * @param groupRollStats The current group roll stats
+ * @param setGroupRollStats A function to update the group roll stats
+ */
 const SucceededStatsDisplay = ({
     groupRollType,
     groupRollStats,
     setGroupRollStats,
 }: SucceededStatsDisplayProps) => {
+    // Sort the succeeded stats arrays by increasing order
     useEffect(() => {
         const whoSucceeded: number[] = groupRollStats.whoSucceeded.sort(
             (a, b) => a - b

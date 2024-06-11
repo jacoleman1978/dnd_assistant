@@ -9,7 +9,12 @@ interface DamageTypeProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
-const DamageTypeSelect = ({damageType, setGroupInputs}: DamageTypeProps) => {
+/**
+ * A dropdown select input for choosing the damage type for a group roll.
+ * @param damageType The current damage type for the group roll
+ * @param setGroupInputs A function to update the group roll inputs
+ */
+const DamageTypeSelect = ({ damageType, setGroupInputs }: DamageTypeProps) => {
     const handleDamageTypeChange = (event: SelectChangeEvent) => {
         setGroupInputs((prev) => ({
             ...prev,

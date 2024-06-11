@@ -7,6 +7,10 @@ interface NumberOfRollsInputProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
+/**
+ * An input for choosing the number of rolls for a group roll.
+ * @param setGroupInputs A function to update the group roll inputs
+ */
 const NumberOfRollsInput = ({ setGroupInputs }: NumberOfRollsInputProps) => {
     const handleNumberOfRollsChange = (event: SelectChangeEvent) => {
         setGroupInputs((prev) => ({

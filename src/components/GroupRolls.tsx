@@ -16,6 +16,7 @@ import { getGroupRollResults } from "../helperFunctions/rollForGroups";
 import { GroupRollType } from "../staticData/types";
 import { GroupRollInputs, GroupRollStats } from "../staticData/interfaces";
 
+// A component for group attack or save rolls
 const GroupRolls = () => {
     const [groupRollType, setGroupRollType] =
         useState<GroupRollType>("Attacks");
@@ -52,7 +53,16 @@ const GroupRolls = () => {
         };
 
         setGroupRollStats(resetGroupRollStats());
-    }, [groupRollType, groupRollInputs.numberOfRolls, groupRollInputs.targetDC, groupRollInputs.modifier, groupRollInputs.advantageType, groupRollInputs.charLevel, groupRollInputs.damageType, groupRollInputs.spellLevel]);
+    }, [
+        groupRollType,
+        groupRollInputs.numberOfRolls,
+        groupRollInputs.targetDC,
+        groupRollInputs.modifier,
+        groupRollInputs.advantageType,
+        groupRollInputs.charLevel,
+        groupRollInputs.damageType,
+        groupRollInputs.spellLevel,
+    ]);
 
     const handleGroupRoll = () => {
         setGroupRollStats(getGroupRollResults(groupRollInputs));

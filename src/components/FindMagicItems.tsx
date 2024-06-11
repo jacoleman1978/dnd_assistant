@@ -14,6 +14,7 @@ import {
 } from "../helperFunctions/rollFindItem";
 import { ItemRarity } from "../staticData/types";
 
+// A component that determines if a magic item of a certain rarity is found and how much it would cost.
 const FindMagicItems = () => {
     const [itemRarity, setItemRarity] = useState<ItemRarity>("Common");
     const [findModifier, setFindModifier] = useState<number>(

@@ -14,17 +14,18 @@ import GroupRolls from "./components/GroupRolls";
 function App() {
     return (
         <div className="App">
-          
             <header className="App-header">
-            
                 <h1>D&D Assistant</h1>
             </header>
             <main>
                 <Router>
-                <NavTabs />
+                    <NavTabs />
                     <Routes>
-                        <Route path="/dnd_assistant" element={<CritHitsAndMisses />} />
-                        
+                        <Route
+                            path="/dnd_assistant"
+                            element={<CritHitsAndMisses />}
+                        />
+
                         <Route
                             path="/dnd_assistant/find-magic-items"
                             element={<FindMagicItems />}
@@ -33,7 +34,10 @@ function App() {
                             path="/dnd_assistant/stat-set"
                             element={<RollStatSet />}
                         />
-                        <Route path="/dnd_assistant/group-rolls" element={<GroupRolls />} />
+                        <Route
+                            path="/dnd_assistant/group-rolls"
+                            element={<GroupRolls />}
+                        />
                     </Routes>
                 </Router>
             </main>

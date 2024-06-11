@@ -1,4 +1,4 @@
-import {FormControl, Select, MenuItem} from "@mui/material";
+import { FormControl, Select, MenuItem } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 import { Level } from "../staticData/types";
@@ -9,7 +9,15 @@ interface CharacterLevelProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
-const CharacterLevelSelect = ({charLevel, setGroupInputs}: CharacterLevelProps) => {
+/**
+ * A dropdown select input for choosing the character level for a group roll.
+ * @param charLevel The current character level for the group roll
+ * @param setGroupInputs A function to update the group roll inputs
+ */
+const CharacterLevelSelect = ({
+    charLevel,
+    setGroupInputs,
+}: CharacterLevelProps) => {
     const handleCharLevelChange = (event: SelectChangeEvent) => {
         setGroupInputs((prev) => ({
             ...prev,

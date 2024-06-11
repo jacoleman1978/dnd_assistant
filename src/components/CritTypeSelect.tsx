@@ -12,6 +12,10 @@ interface CritTypeSelectProps {
     setCritType: React.Dispatch<React.SetStateAction<CritType>>;
 }
 
+/**
+ * A radio group for selecting the type of critical roll: hit or miss.
+ * @param setCritType A function to update the crit type
+ */
 const CritTypeSelect = ({ setCritType }: CritTypeSelectProps) => {
     const handleCritTypeChange = (event: SelectChangeEvent) => {
         setCritType(event.target.value as CritType);

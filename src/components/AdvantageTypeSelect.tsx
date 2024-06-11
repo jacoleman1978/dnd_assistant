@@ -9,6 +9,11 @@ interface AdvantageTypeSelectProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
+/**
+ * A dropdown select input for choosing the advantage type for a group roll.
+ * @param advantageType The current advantage type for the group roll
+ * @param setGroupInputs A function to update the group roll inputs
+ */
 const AdvantageTypeSelect = ({
     advantageType,
     setGroupInputs,

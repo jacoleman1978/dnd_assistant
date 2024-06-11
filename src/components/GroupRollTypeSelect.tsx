@@ -13,6 +13,11 @@ interface GroupRollTypeSelectProps {
     setGroupRollType: React.Dispatch<React.SetStateAction<GroupRollType>>;
 }
 
+/**
+ * A radio group for selecting the type of group roll: attacks or saves.
+ * @param groupRollType The current group roll type
+ * @param setGroupRollType A function to update the group roll type
+ */
 const GroupRollTypeSelect = ({
     groupRollType,
     setGroupRollType,

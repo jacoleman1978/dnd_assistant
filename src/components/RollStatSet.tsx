@@ -1,14 +1,11 @@
 import { useState } from "react";
 
-import {
-    Typography,
-    FormControl,
-    Button,
-} from "@mui/material";
+import { Typography, FormControl, Button } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 import { rollStatSet } from "../helperFunctions/rollStatSet";
 
+// A component for rolling a character stat set using 4d6 and drop the lowest
 const RollStatSet = () => {
     const [minStatAllowed, setMinStatAllowed] = useState<number>(3);
     const [minStatSum, setMinStatSum] = useState<number>(18);
@@ -28,16 +25,21 @@ const RollStatSet = () => {
     };
 
     const handleRollStatSetClick = () => {
-        const results = rollStatSet(minStatAllowed, minStatSum, atLeastOneStatIs);
+        const results = rollStatSet(
+            minStatAllowed,
+            minStatSum,
+            atLeastOneStatIs
+        );
         results.sort((a, b) => a - b);
         setStatSet(results);
-    }
+    };
 
     return (
         <div className="card">
             <Typography variant="h5">Roll Character Stat Set</Typography>
             <Typography variant="body2" sx={{ textAlign: "left" }}>
-                Roll 4d6 and drop the lowest. Repeat 6 times to generate a stat set.
+                Roll 4d6 and drop the lowest. Repeat 6 times to generate a stat
+                set.
             </Typography>
             <FormControl>
                 <div className="row-wrap-center-center sm-margin-top">

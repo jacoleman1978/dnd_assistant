@@ -1,5 +1,9 @@
 import {Outlet, Link as RouterLink} from 'react-router-dom';
 
+/**
+ * 
+ * @returns A navigation bar with links to the Criticals, Find Magic Items, Group Rolls, and Stat Set pages.
+ */
 function NavTabs() {
   return (
     <div>

@@ -9,14 +9,22 @@ interface SpellLevelSelectProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
-const SpellLevelSelect = ({spellLevel, setGroupInputs}: SpellLevelSelectProps) => {
+/**
+ * A dropdown select input for choosing the spell level for a group roll.
+ * @param spellLevel The current spell level for the group roll
+ * @param setGroupInputs A function to update the group roll inputs
+ */
+const SpellLevelSelect = ({
+    spellLevel,
+    setGroupInputs,
+}: SpellLevelSelectProps) => {
     const handleSpellLevelChange = (event: SelectChangeEvent) => {
         setGroupInputs((prev) => ({
             ...prev,
             spellLevel: Number(event.target.value) as SpellLevel,
         }));
     };
-    
+
     return (
         <FormControl>
             <div className="row-wrap-center-center sm-margin-vertical">

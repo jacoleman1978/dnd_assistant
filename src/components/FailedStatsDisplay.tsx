@@ -11,11 +11,18 @@ interface FailedStatsDisplayProps {
     setGroupRollStats: React.Dispatch<React.SetStateAction<GroupRollStats>>;
 }
 
+/**
+ * A display for showing who failed a group roll and who had normal and table critical misses.
+ * @param groupRollType The type of group roll: attacks or saves
+ * @param groupRollStats The current group roll stats
+ * @param setGroupRollStats A function to update the group roll stats
+ */
 const FailedStatsDisplay = ({
     groupRollType,
     groupRollStats,
     setGroupRollStats,
 }: FailedStatsDisplayProps) => {
+    // Sort the failed stats arrays by increasing order
     useEffect(() => {
         const whoFailed: number[] = groupRollStats.whoFailed.sort(
             (a, b) => a - b

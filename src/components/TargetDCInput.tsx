@@ -9,6 +9,11 @@ interface TargetDCInputProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
 }
 
+/**
+ * An input for choosing the target DC for a group roll.
+ * @param groupRollType The type of group roll: attacks or saves
+ * @param setGroupInputs A function to update the group roll inputs
+ */
 const TargetDCInput = ({
     groupRollType,
     setGroupInputs,

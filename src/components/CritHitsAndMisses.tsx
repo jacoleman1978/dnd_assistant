@@ -10,6 +10,7 @@ import { rollCritical } from "../helperFunctions/rollCriticals";
 import { CritType } from "../staticData/types";
 import { GroupRollInputs } from "../staticData/interfaces";
 
+// A component for rolling critical hits and misses
 const CritHitsAndMisses = () => {
     const [critType, setCritType] = useState<CritType>("Hit");
 
@@ -25,10 +26,12 @@ const CritHitsAndMisses = () => {
 
     const [critResult, setCritResult] = useState<string[]>([]);
 
+    // Reset the crit result when the damage type, character level, or spell level changes
     useEffect(() => {
         setCritResult([]);
     }, [groupInputs.damageType, groupInputs.charLevel, groupInputs.spellLevel]);
 
+    // Reset the crit result when the crit type changes
     useEffect(() => {
         setGroupInputs({
             numberOfRolls: 5,
@@ -38,7 +41,7 @@ const CritHitsAndMisses = () => {
             damageType: "Slashing",
             charLevel: 5,
             spellLevel: 0,
-        })
+        });
         setCritResult([]);
     }, [critType, setGroupInputs, setCritResult]);
 
