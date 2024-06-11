@@ -9,9 +9,23 @@ import {
     magicFumble,
 } from "../staticData/criticalTables";
 
-export const rollCritical = (critType: CritType, damageType: DamageType, charLevel: Level, spellLevel: SpellLevel = 0): string => {
+/**
+ * Rolls a critical hit or miss based on the critType, returning a critical result string.
+ * @param critType A CritType type literal: "Hit" or "Miss"
+ * @param damageType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @returns A string with the critical hit or miss result
+ */
+export const rollCritical = (
+    critType: CritType,
+    damageType: DamageType,
+    charLevel: Level,
+    spellLevel: SpellLevel = 0
+): string => {
     if (critType === "Hit") {
         return rollCriticalHit(damageType, charLevel, spellLevel);
+
     } else if (critType === "Miss") {
         return rollCriticalMiss(damageType, charLevel, spellLevel);
     }
@@ -19,10 +33,25 @@ export const rollCritical = (critType: CritType, damageType: DamageType, charLev
     return "";
 };
 
+/**
+ * Compares a d100 to a critical hit threshold based on character level and returns whether the roll is a critical hit.
+ * @param level A Level type literal with numbers from 1 to 20
+ * @param d100 A random number from 1 to 100
+ * @returns A boolean indicating whether the roll is a critical hit
+ */
 export const isCriticalHit = (level: Level, d100: number): boolean => {
     return d100 <= 10 + 5 * level;
 };
 
+/**
+ * If the d100 roll is a critical hit, returns a string with the critical hit message from the appropriate critical hit table.
+ * @param damageType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param firstd100 A random number from 1 to 100
+ * @param secondD100 A random number from 1 to 100
+ * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @returns 
+ */
 export const criticalHitMessage = (
     damageType: DamageType,
     charLevel: Level,
@@ -54,6 +83,13 @@ export const criticalHitMessage = (
     return "";
 };
 
+/**
+ * Rolls 2d100 to determine if a critical hit occurs, and if so, returns a string with the critical hit message from the appropriate table.
+ * @param damageType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @returns 
+ */
 export const rollCriticalHit = (
     damageType: DamageType,
     charLevel: Level,
@@ -71,6 +107,12 @@ export const rollCriticalHit = (
     );
 };
 
+/**
+ * Compares a d100 to a critical miss threshold based on character level and returns whether the roll is a critical miss. Any roll over 95 is automatically a critical miss.
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param d100 A random number from 1 to 100
+ * @returns A boolean indicating whether the roll is a critical miss
+ */
 export const isCriticalMiss = (charLevel: Level, d100: number) => {
     let limit: number = 10 + 5 * charLevel;
 
@@ -79,6 +121,15 @@ export const isCriticalMiss = (charLevel: Level, d100: number) => {
     return d100 > limit;
 };
 
+/**
+ * If the d100 roll is a critical miss, returns a string with the critical miss message from the appropriate critical miss table.
+ * @param damageType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param firstD100 A random number from 1 to 100
+ * @param secondD100 A random number from 1 to 100
+* @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @returns A string with the critical miss message
+ */
 export const criticalMissMessage = (
     damageType: DamageType,
     charLevel: Level,
@@ -132,6 +183,13 @@ export const criticalMissMessage = (
     return "";
 };
 
+/**
+ * Rolls 2d100 to determine if a critical miss occurs, and if so, returns a string with the critical miss message from the appropriate table.
+ * @param damagType A DamageType type literal: "Bludgeoning", "Slashing", "Piercing", or "Magic"
+ * @param charLevel A Level type literal with numbers from 1 to 20
+ * @param spellLevel A SpellLevel type literal with numbers from 0 to 9, only used when DamageType is "Magic"
+ * @returns A string with the critical miss message
+ */
 export const rollCriticalMiss = (
     damagType: DamageType,
     charLevel: Level,
