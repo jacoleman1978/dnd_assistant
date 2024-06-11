@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dnd_assistant/static/css/main.186e40b1.css",
-    "main.js": "/dnd_assistant/static/js/main.c288b5b2.js",
+    "main.js": "/dnd_assistant/static/js/main.2b1507f0.js",
     "static/js/453.73d62816.chunk.js": "/dnd_assistant/static/js/453.73d62816.chunk.js",
     "static/media/roboto-latin-500-normal.woff2": "/dnd_assistant/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/dnd_assistant/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -61,11 +61,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/dnd_assistant/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/dnd_assistant/index.html",
     "main.186e40b1.css.map": "/dnd_assistant/static/css/main.186e40b1.css.map",
-    "main.c288b5b2.js.map": "/dnd_assistant/static/js/main.c288b5b2.js.map",
+    "main.2b1507f0.js.map": "/dnd_assistant/static/js/main.2b1507f0.js.map",
     "453.73d62816.chunk.js.map": "/dnd_assistant/static/js/453.73d62816.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.186e40b1.css",
-    "static/js/main.c288b5b2.js"
+    "static/js/main.2b1507f0.js"
   ]
 }
