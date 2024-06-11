@@ -7,7 +7,6 @@ import {
 import { SelectChangeEvent } from "@mui/material/Select";
 
 import { CritType } from "../staticData/types";
-import { GroupRollInputs } from "../staticData/interfaces";
 
 interface CritTypeSelectProps {
     setCritType: React.Dispatch<React.SetStateAction<CritType>>;

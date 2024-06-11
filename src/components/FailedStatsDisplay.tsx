@@ -37,6 +37,7 @@ const FailedStatsDisplay = ({
         groupRollStats.whoFailed,
         groupRollStats.whoHasNormalCriticalMiss,
         groupRollStats.whoHasTableCriticalMiss,
+        setGroupRollStats,
     ]);
     return (
         <div

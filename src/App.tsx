@@ -6,6 +6,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NavTabs from "./components/NavTabs";
+import RollStatSet from "./components/RollStatSet";
 import FindMagicItems from "./components/FindMagicItems";
 import CritHitsAndMisses from "./components/CritHitsAndMisses";
 import GroupRolls from "./components/GroupRolls";
@@ -22,15 +23,15 @@ function App() {
                 <Router>
                 <NavTabs />
                     <Routes>
-                        <Route path="/dnd_assistant" element={<FindMagicItems />} />
+                        <Route path="/dnd_assistant" element={<CritHitsAndMisses />} />
                         
                         <Route
                             path="/dnd_assistant/find-magic-items"
                             element={<FindMagicItems />}
                         />
                         <Route
-                            path="/dnd_assistant/crit-hits-and-misses"
-                            element={<CritHitsAndMisses />}
+                            path="/dnd_assistant/stat-set"
+                            element={<RollStatSet />}
                         />
                         <Route path="/dnd_assistant/group-rolls" element={<GroupRolls />} />
                     </Routes>

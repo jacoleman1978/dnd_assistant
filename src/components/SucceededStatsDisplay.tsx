@@ -37,6 +37,7 @@ const SucceededStatsDisplay = ({
         groupRollStats.whoSucceeded,
         groupRollStats.whoHasNormalCriticalHit,
         groupRollStats.whoHasTableCriticalHit,
+        setGroupRollStats,
     ]);
     return (
         <div
