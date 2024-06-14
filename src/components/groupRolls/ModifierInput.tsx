@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 
-import { GroupRollType, Modifier } from "../staticData/types";
-import { GroupRollInputs } from "../staticData/interfaces";
+import { GroupRollType, Modifier } from "../../staticData/types";
+import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface ModifierInputProps {
     groupRollType: GroupRollType;

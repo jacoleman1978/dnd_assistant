@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 
-import { GroupRollType } from "../staticData/types";
+import { GroupRollType } from "../../staticData/types";
 
 interface GroupRollTypeRadioProps {
     setGroupRollType: React.Dispatch<React.SetStateAction<GroupRollType>>;

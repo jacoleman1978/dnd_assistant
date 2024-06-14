@@ -1,4 +1,4 @@
-import { WhoTableCritted } from "../staticData/interfaces";
+import { WhoTableCritted } from "../../staticData/interfaces";
 
 interface CritHitMessageProps {
     crit: WhoTableCritted;

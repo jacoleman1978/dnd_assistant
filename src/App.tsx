@@ -6,10 +6,10 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NavTabs from "./components/NavTabs";
-import RollStatSet from "./components/RollStatSet";
-import FindMagicItems from "./components/FindMagicItems";
-import CritHitsAndMisses from "./components/CritHitsAndMisses";
-import GroupRolls from "./components/GroupRolls";
+import RollStatSet from "./components/rollStatSet/RollStatSet";
+import FindMagicItems from "./components/findMagicItems/FindMagicItems";
+import CritHitsAndMisses from "./components/criticalRolls/CritHitsAndMisses";
+import GroupRolls from "./components/groupRolls/GroupRolls";
 
 function App() {
     return (

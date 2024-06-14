@@ -4,11 +4,11 @@ import CharacterLevelInput from "./CharacterLevelInput";
 import DamageTypeSelect from "./DamageTypeSelect";
 import SpellLevelSelect from "./SpellLevelSelect";
 import CritTypeRadio from "./CritTypeRadio";
-import Button from "./Button";
+import Button from "../Button";
 
-import { rollCritical } from "../helperFunctions/rollCriticals";
-import { CritType } from "../staticData/types";
-import { GroupRollInputs } from "../staticData/interfaces";
+import { rollCritical } from "../../helperFunctions/rollCriticals";
+import { CritType } from "../../staticData/types";
+import { GroupRollInputs } from "../../staticData/interfaces";
 
 // A component for rolling critical hits and misses
 const CritHitsAndMisses = () => {

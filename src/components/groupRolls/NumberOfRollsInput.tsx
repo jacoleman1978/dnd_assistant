@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 
-import { GroupRollInputs } from "../staticData/interfaces";
+import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface NumberOfRollsInputProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;

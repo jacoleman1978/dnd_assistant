@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 import ItemRaritySelect from "./ItemRaritySelect";
-import Button from "./Button";
+import Button from "../Button";
 
 import {
     defaultRarityMap,
     findItemByRarity,
-} from "../helperFunctions/rollFindItem";
-import { ItemRarity } from "../staticData/types";
+} from "../../helperFunctions/rollFindItem";
+import { ItemRarity } from "../../staticData/types";
 
 // A component that determines if a magic item of a certain rarity is found and how much it would cost.
 const FindMagicItems = () => {

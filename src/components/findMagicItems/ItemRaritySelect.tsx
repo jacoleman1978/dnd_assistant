@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 
-import { ItemRarity } from "../staticData/types";
+import { ItemRarity } from "../../staticData/types";
 
 interface ItemRaritySelectProps {
     setItemRarity: React.Dispatch<React.SetStateAction<ItemRarity>>;

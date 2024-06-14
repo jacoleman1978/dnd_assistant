@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 
-import { GroupRollType } from "../staticData/types";
-import { GroupRollInputs } from "../staticData/interfaces";
+import { GroupRollType } from "../../staticData/types";
+import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface TargetDCInputProps {
     groupRollType: GroupRollType;

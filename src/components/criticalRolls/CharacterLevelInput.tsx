@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 
-import { Level } from "../staticData/types";
-import { GroupRollInputs } from "../staticData/interfaces";
+import { Level } from "../../staticData/types";
+import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface CharacterLevelProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;

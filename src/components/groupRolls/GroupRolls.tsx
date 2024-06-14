@@ -5,15 +5,15 @@ import NumberOfRollsInput from "./NumberOfRollsInput";
 import TargetDCInput from "./TargetDCInput";
 import ModifierInput from "./ModifierInput";
 import AdvantageTypeSelect from "./AdvantageTypeSelect";
-import CharacterLevelInput from "./CharacterLevelInput";
-import DamageTypeSelect from "./DamageTypeSelect";
-import SpellLevelSelect from "./SpellLevelSelect";
+import CharacterLevelInput from "../criticalRolls/CharacterLevelInput";
+import DamageTypeSelect from "../criticalRolls/DamageTypeSelect";
+import SpellLevelSelect from "../criticalRolls/SpellLevelSelect";
 import GroupRollStatsDisplay from "./GroupRollStatsDisplay";
-import Button from "./Button";
+import Button from "../Button";
 
-import { getGroupRollResults } from "../helperFunctions/rollForGroups";
-import { GroupRollType } from "../staticData/types";
-import { GroupRollInputs, GroupRollStats } from "../staticData/interfaces";
+import { getGroupRollResults } from "../../helperFunctions/rollForGroups";
+import { GroupRollType } from "../../staticData/types";
+import { GroupRollInputs, GroupRollStats } from "../../staticData/interfaces";
 
 // A component for group attack or save rolls
 const GroupRolls = () => {

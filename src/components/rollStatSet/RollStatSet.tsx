@@ -3,9 +3,9 @@ import { useState } from "react";
 import MinStatAllowedInput from "./MinStatAllowedInput";
 import MinStatSumInput from "./MinStatSumInput";
 import AtLeastOneStatInput from "./AtLeastOneStatInput";
-import Button from "./Button";
+import Button from "../Button";
 
-import { rollStatSet } from "../helperFunctions/rollStatSet";
+import { rollStatSet } from "../../helperFunctions/rollStatSet";
 
 // A component for rolling a character stat set using 4d6 and drop the lowest
 const RollStatSet = () => {

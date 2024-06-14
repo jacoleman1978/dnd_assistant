@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 
-import { GroupRollInputs } from "../staticData/interfaces";
-import { SpellLevel } from "../staticData/types";
+import { GroupRollInputs } from "../../staticData/interfaces";
+import { SpellLevel } from "../../staticData/types";
 
 interface SpellLevelSelectProps {
     setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;

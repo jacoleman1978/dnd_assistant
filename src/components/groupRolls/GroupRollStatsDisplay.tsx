@@ -7,8 +7,8 @@ import {
     Criticals,
     GroupRollStats,
     WhoTableCritted,
-} from "../staticData/interfaces";
-import { GroupRollType, CritType } from "../staticData/types";
+} from "../../staticData/interfaces";
+import { GroupRollType, CritType } from "../../staticData/types";
 
 interface GroupRollStatsDisplayProps {
     groupRollType: GroupRollType;
