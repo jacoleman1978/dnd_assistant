@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import AtLeastOneStatInput from "../../src/components/AtLeastOneStatInput";
+import AtLeastOneStatInput from "../../src/components/rollStatSet/AtLeastOneStatInput";
 
 describe("AtLeastOneStatInput", () => {
     test("renders with the default value and enforces min/max", () => {

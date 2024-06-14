@@ -1,11 +1,11 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { GroupRollType } from "../../staticData/types";
 import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface TargetDCInputProps {
     groupRollType: GroupRollType;
-    setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
+    setGroupInputs: Dispatch<SetStateAction<GroupRollInputs>>;
 }
 
 /**

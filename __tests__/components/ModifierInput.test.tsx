@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import ModifierInput from "../../src/components/ModifierInput";
+import ModifierInput from "../../src/components/groupRolls/ModifierInput";
 
 describe("ModifierInput", () => {
     test("renders with the default value and enforces min/max", () => {

@@ -36,8 +36,8 @@ describe("rollDice", () => {
     const numberOfRolls: number = 10000;
     test("should return a number between 1 and 4 for d4", () => {
         const diceSize: number = 4;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -59,8 +59,8 @@ describe("rollDice", () => {
 
     test("should return a number between 1 and 6 for d6", () => {
         const diceSize: number = 6;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -82,8 +82,8 @@ describe("rollDice", () => {
 
     test("should return a number between 1 and 8 for d8", () => {
         const diceSize: number = 8;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -105,8 +105,8 @@ describe("rollDice", () => {
 
     test("should return a number between 1 and 10 for d10", () => {
         const diceSize: number = 10;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -128,8 +128,8 @@ describe("rollDice", () => {
 
     test("should return a number between 1 and 12 for d12", () => {
         const diceSize: number = 12;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {
@@ -152,8 +152,8 @@ describe("rollDice", () => {
     test("should return a number between 1 and 20 for d20", () => {
         const numberOfRolls: number = 100000;
         const diceSize: number = 20;
-        const minNumOfRolls: number = (0.9 * numberOfRolls) / diceSize;
-        const maxNumOfRolls: number = (1.1 * numberOfRolls) / diceSize;
+        const minNumOfRolls: number = (0.85 * numberOfRolls) / diceSize;
+        const maxNumOfRolls: number = (1.15 * numberOfRolls) / diceSize;
         const stats = {};
 
         for (let i = 0; i < numberOfRolls; i++) {

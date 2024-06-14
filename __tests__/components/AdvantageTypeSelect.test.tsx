@@ -3,7 +3,7 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import AdvantageTypeSelect from "../../src/components/AdvantageTypeSelect";
+import AdvantageTypeSelect from "../../src/components/groupRolls/AdvantageTypeSelect";
 
 describe("AdvantageTypeSelect", () => {
     test("renders the correct options", () => {

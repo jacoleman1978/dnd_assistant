@@ -3,7 +3,7 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import ItemRaritySelect from "../../src/components/ItemRaritySelect";
+import ItemRaritySelect from "../../src/components/findMagicItems/ItemRaritySelect";
 
 describe("ItemRaritySelect", () => {
     it("renders a select box with options", () => {

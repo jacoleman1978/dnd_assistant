@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import CritTypeRadio from "../../src/components/CritTypeRadio";
+import CritTypeRadio from "../../src/components/criticalRolls/CritTypeRadio";
 
 describe("CritTypeRadio", () => {
     test("renders with the default value", () => {

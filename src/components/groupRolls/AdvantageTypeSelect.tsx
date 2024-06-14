@@ -1,10 +1,10 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { AdvantageType } from "../../staticData/types";
 import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface AdvantageTypeSelectProps {
-    setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
+    setGroupInputs: Dispatch<SetStateAction<GroupRollInputs>>;
 }
 
 /**

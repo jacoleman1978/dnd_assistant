@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface MinStatAllowedInputProps {
-    setMinStatAllowed: React.Dispatch<React.SetStateAction<number>>;
+    setMinStatAllowed: Dispatch<SetStateAction<number>>;
 }
 
+/**
+ * An input for choosing the minimum value for each stat.
+ * @param setMinStatAllowed A function to update the minimum value for each stat
+ * @returns
+ */
 const MinStatAllowedInput = ({
     setMinStatAllowed,
 }: MinStatAllowedInputProps) => {

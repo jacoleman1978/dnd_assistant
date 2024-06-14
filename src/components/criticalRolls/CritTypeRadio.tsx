@@ -1,9 +1,9 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { CritType } from "../../staticData/types";
 
 interface CritTypeRadioProps {
-    setCritType: React.Dispatch<React.SetStateAction<CritType>>;
+    setCritType: Dispatch<SetStateAction<CritType>>;
 }
 
 /**

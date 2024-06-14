@@ -5,6 +5,11 @@ interface CritHitMessageProps {
     index?: number;
 }
 
+/**
+ * A message for displaying the critical hit message.
+ * @param crit The object of the player who rolled a critical hit
+ * @param index The index of the player in the array of critical hits
+ */
 const CritHitMessage = ({ crit, index = 0 }: CritHitMessageProps) => {
     const firstIndex: number = crit.critMessage.indexOf(":");
     const rollOnTable: string = crit.critMessage.slice(0, firstIndex + 2);

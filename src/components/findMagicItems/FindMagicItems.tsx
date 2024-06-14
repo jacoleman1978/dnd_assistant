@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import ItemRaritySelect from "./ItemRaritySelect";
+import FindPercentModifierInput from "./FindPercentModifierInput";
 import Button from "../Button";
 
 import {
@@ -22,6 +23,10 @@ const FindMagicItems = () => {
         setFindModifier(defaultRarityMap[itemRarity]);
     }, [itemRarity]);
 
+    useEffect(() => {
+        setFindResult("");
+    }, [findModifier]);
+
     const handleFindItemClick = () => {
         setFindResult(
             findItemByRarity(
@@ -31,58 +36,95 @@ const FindMagicItems = () => {
         );
     };
 
-    const handleIncreaseFindModifier = () => {
-        setFindResult("");
-        if (findModifier === 100) {
-            return;
-        }
-        setFindModifier((prev) => prev + 1);
-    };
-
-    const handleDecreaseFindModifier = () => {
-        setFindResult("");
-        if (findModifier === 0) {
-            return;
-        }
-        setFindModifier((prev) => prev - 1);
-    };
-
     return (
-        <div className="card">
-            <h1>Find Magic Items</h1>
+        <section>
+            <section className="card">
+                <h1>Find Magic Items</h1>
 
-            <ItemRaritySelect setItemRarity={setItemRarity} />
+                <ItemRaritySelect setItemRarity={setItemRarity} />
 
-            <div className="row-wrap-center-center sm-margin-bottom">
-                <p>{`Find percentage for ${itemRarity.toLowerCase()}: ${
-                    findModifier < 0 ? 0 : findModifier
-                }%`}</p>
+                <FindPercentModifierInput
+                    findModifier={findModifier}
+                    setFindModifier={setFindModifier}
+                />
 
                 <Button
-                    label="+"
-                    className="increment-button"
-                    handleClick={handleIncreaseFindModifier}
+                    label="Find Item"
+                    className="submit-button"
+                    handleClick={handleFindItemClick}
                 />
-                <Button
-                    label="-"
-                    className="decrement-button"
-                    handleClick={handleDecreaseFindModifier}
-                />
-            </div>
 
-            <Button
-                label="Find Item"
-                className="submit-button"
-                handleClick={handleFindItemClick}
-            />
+                <p className="message-align-left-top-margin">
+                    {findResult.slice(0, findResult.indexOf("."))}
+                </p>
+                <p className="message-align-left-top-margin">
+                    {findResult.slice(findResult.indexOf(".") + 1)}
+                </p>
+            </section>
+            <section className="card">
+                <section>
+                    <p className="source sm-margin-bottom">
+                        The equations used are from page 126 of{" "}
+                        <em>Xanathar's Guide to Everything</em>, using item
+                        rarity to determine the cost of a magic item. Consumable
+                        items have half the cost of those shown.
+                    </p>
+                    <p className="source med-margin-top">Equations used:</p>
+                    <ul className="column-align-start sm-margin-left">
+                        <li className="source">Common: </li>
+                        <ul>
+                            <li className="subbullet">Cost = 10 * (1d6 + 1)</li>
+                            <li className="subbullet">
+                                Price Range: 20 to 70 gp
+                            </li>
+                        </ul>
+                        <li className="source">Uncommon:</li>
+                        <ul>
+                            <li className="subbullet">Cost = 100 * (1d6)</li>
+                            <li className="subbullet">
+                                Price Range: 100 to 600 gp
+                            </li>
+                        </ul>
+                        <li className="source">Rare:</li>
+                        <ul>
+                            <li className="subbullet">Cost = 1,000 * (2d10)</li>
+                            <li className="subbullet">
+                                Price Range: 2,000 to 20,000 gp
+                            </li>
+                        </ul>
+                        <li className="source">Very Rare:</li>
+                        <ul>
+                            <li className="subbullet">
+                                Cost = 10,000 * (1d4 + 1)
+                            </li>
+                            <li className="subbullet">
+                                Price Range: 20,000 to 50,000 gp
+                            </li>
+                        </ul>
+                        <li className="source">Legendary:</li>
+                        <ul>
+                            <li className="subbullet">Cost = 25,000 * (2d6)</li>
+                            <li className="subbullet">
+                                Price Range: 50,000 to 300,000 gp
+                            </li>
+                        </ul>
+                    </ul>
+                </section>
 
-            <p style={{ textAlign: "left", width: "100%", marginTop: "10px" }}>
-                {findResult.slice(0, findResult.indexOf("."))}
-            </p>
-            <p style={{ textAlign: "left", width: "100%", marginTop: "10px" }}>
-                {findResult.slice(findResult.indexOf(".") + 1)}
-            </p>
-        </div>
+                <section className="sm-margin-top">
+                    <p className="source">
+                        Default percentages to find magic items of each rarity:
+                    </p>
+                    <ul className="column-align-start sm-margin-left">
+                        <li className="source">Common: 50%</li>
+                        <li className="source">Uncommon: 30%</li>
+                        <li className="source">Rare: 15%</li>
+                        <li className="source">Very rare: 10%</li>
+                        <li className="source">Legendary: 1%</li>
+                    </ul>
+                </section>
+            </section>
+        </section>
     );
 };
 export default FindMagicItems;

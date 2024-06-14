@@ -25,28 +25,46 @@ const RollStatSet = () => {
     };
 
     return (
-        <div className="card">
-            <h1>Roll Character Stat Set</h1>
-            <p style={{ textAlign: "left", marginTop: "20px" }}>
-                Roll 4d6 and drop the lowest. Repeat 6 times to generate a stat
-                set.
-            </p>
-            <MinStatAllowedInput setMinStatAllowed={setMinStatAllowed} />
+        <section>
+            <section className="card">
+                <h1>Roll Character Stat Set</h1>
 
-            <MinStatSumInput setMinStatSum={setMinStatSum} />
+                <MinStatAllowedInput setMinStatAllowed={setMinStatAllowed} />
 
-            <AtLeastOneStatInput setAtLeastOneStatIs={setAtLeastOneStatIs} />
+                <MinStatSumInput setMinStatSum={setMinStatSum} />
 
-            <Button
-                label="Roll Stat Set"
-                className="submit-button sm-margin-vertical"
-                handleClick={handleRollStatSetClick}
-            />
+                <AtLeastOneStatInput
+                    setAtLeastOneStatIs={setAtLeastOneStatIs}
+                />
 
-            <p style={{ textAlign: "center", width: "100%" }}>
-                {statSet.length > 0 ? statSet.join(", ") : ""}
-            </p>
-        </div>
+                <Button
+                    label="Roll Stat Set"
+                    className="submit-button sm-margin-vertical"
+                    handleClick={handleRollStatSetClick}
+                />
+
+                <p style={{ textAlign: "center", width: "100%" }}>
+                    {statSet.length > 0 ? statSet.join(", ") : ""}
+                </p>
+            </section>
+            <section className="card">
+                <h1>Stat Set Roll Options</h1>
+
+                <p className="source">
+                    <strong>Min Stat Allowed:</strong> The minimum value a
+                    single stat can be. By default this is 3 because the lowest result of 4d6, dropping the lowest, is four 1s. Some DMs prefer for their players to not have stats below a certain number, such as 6 or 8.
+                </p>
+                <br/>
+                <p className="source">
+                    <strong>Min Stat Sum:</strong> The minimum sum of all stats. By default this is 18, because if you were really unlucky and rolled four 1s for each of the six stats, the sum would be 18. The maximum sum of all stats is 108, which is an 18 in all 6 stats. Some DMs expect a certain level of power from their players for specific campaigns, so they set a minimum sum of all stats. A value of 67 would guarantee at least one of the stats is 12 or higher.
+                </p>
+                <br/>
+                <p className="source">
+                    <strong>At Least One Stat Is:</strong> The minimum value at
+                    least one stat must be. This ensures that the player has at least one stat above a certain value, so they have at least one viable option for their main stat. I've been in high power campaigns where a DM wanted each character to have at least one 18 and this tool can ensure that.
+                </p>
+            </section>
+        </section>
     );
 };
 export default RollStatSet;

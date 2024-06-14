@@ -1,10 +1,10 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { DamageType } from "../../staticData/types";
 import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface DamageTypeProps {
-    setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
+    setGroupInputs: Dispatch<SetStateAction<GroupRollInputs>>;
 }
 
 /**

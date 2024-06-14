@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import MinStatSumInput from "../../src/components/MinStatSumInput";
+import MinStatSumInput from "../../src/components/rollStatSet/MinStatSumInput";
 
 describe("MinStatSumInput", () => {
     it("renders a label and input field", () => {

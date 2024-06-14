@@ -46,7 +46,7 @@ export const isItemFoundByPercent = (
 };
 
 /**
- * Uses equations beased on item rarity to determine the cost of a magic item. Equations are based on Xanathar's Guide to Everything.
+ * Uses equations based on item rarity to determine the cost of a magic item. Equations are based on Xanathar's Guide to Everything.
  * @param itemRarity An ItemRarity type literal: "Common", "Uncommon", "Rare", "Very rare", or "Legendary"
  * @returns A number representing the cost of the magic item in gold
  */

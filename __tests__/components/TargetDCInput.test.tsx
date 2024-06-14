@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import TargetDCInput from "../../src/components/TargetDCInput";
+import TargetDCInput from "../../src/components/groupRolls/TargetDCInput";
 
 describe("TargetDCInput", () => {
     test("renders with the default value and enforces min/max", () => {

@@ -7,7 +7,7 @@ import ModifierInput from "./ModifierInput";
 import AdvantageTypeSelect from "./AdvantageTypeSelect";
 import CharacterLevelInput from "../criticalRolls/CharacterLevelInput";
 import DamageTypeSelect from "../criticalRolls/DamageTypeSelect";
-import SpellLevelSelect from "../criticalRolls/SpellLevelSelect";
+import SpellLevelInput from "../criticalRolls/SpellLevelInput";
 import GroupRollStatsDisplay from "./GroupRollStatsDisplay";
 import Button from "../Button";
 
@@ -68,7 +68,8 @@ const GroupRolls = () => {
     };
 
     return (
-        <div className="card">
+        <section>
+        <section className="card">
             <h1>Group Rolls</h1>
 
             <GroupRollTypeRadio setGroupRollType={setGroupRollType} />
@@ -93,7 +94,7 @@ const GroupRolls = () => {
                     <DamageTypeSelect setGroupInputs={setGroupRollInputs} />
 
                     {groupRollInputs.damageType === "Magic" ? (
-                        <SpellLevelSelect setGroupInputs={setGroupRollInputs} />
+                        <SpellLevelInput setGroupInputs={setGroupRollInputs} />
                     ) : null}
                 </>
             ) : null}
@@ -104,14 +105,7 @@ const GroupRolls = () => {
                 handleClick={handleGroupRoll}
             />
 
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    width: "100%",
-                }}
-            >
+            <section className="column-align-start">
                 <GroupRollStatsDisplay
                     groupRollType={groupRollType}
                     critType="Hit"
@@ -137,8 +131,14 @@ const GroupRolls = () => {
                     }}
                     setGroupRollStats={setGroupRollStats}
                 />
-            </div>
-        </div>
+            </section>
+        </section>
+        <section className="card">
+            <p className="source med-margin-top">
+                Often in D&D, you need to roll attacks or saves for a group of enemies, conjured creatures, or summoned creatures. Often this task is time consuming and slows down combat. This tool is designed to help speed up the process by allowing you to roll for multiple creatures at once.
+            </p>
+        </section>
+        </section>
     );
 };
 export default GroupRolls;

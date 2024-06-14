@@ -1,11 +1,15 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { ItemRarity } from "../../staticData/types";
 
 interface ItemRaritySelectProps {
-    setItemRarity: React.Dispatch<React.SetStateAction<ItemRarity>>;
+    setItemRarity: Dispatch<SetStateAction<ItemRarity>>;
 }
 
+/**
+ * A dropdown select input for choosing the rarity of a magic item.
+ * @param setItemRarity A function to update the item rarity
+ */
 const ItemRaritySelect = ({ setItemRarity }: ItemRaritySelectProps) => {
     const handleItemRarityChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setItemRarity(event.target.value as ItemRarity);
@@ -23,7 +27,7 @@ const ItemRaritySelect = ({ setItemRarity }: ItemRaritySelectProps) => {
                 <option value="Common">Common</option>
                 <option value="Uncommon">Uncommon</option>
                 <option value="Rare">Rare</option>
-                <option value="Very Rare">Very Rare</option>
+                <option value="Very rare">Very Rare</option>
                 <option value="Legendary">Legendary</option>
             </select>
         </section>

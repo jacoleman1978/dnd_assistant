@@ -5,6 +5,11 @@ interface CritMissMessageProps {
     index?: number;
 }
 
+/**
+ * A message for displaying the critical miss message.
+ * @param crit The object of the player who rolled a critical miss
+ * @param index The index of the player in the array of critical misses
+ */
 const CritMissMessage = ({ crit, index = 0 }: CritMissMessageProps) => {
     const secondIndexExclam: number = crit.critMessage.indexOf(
         "!",
@@ -28,7 +33,7 @@ const CritMissMessage = ({ crit, index = 0 }: CritMissMessageProps) => {
     );
     const critEffect: string = critMessage.slice(critEffectIndex);
     return (
-        <>
+        <div>
             <p
                 className="group-roll-stats-section sm-margin-left"
                 style={{
@@ -41,7 +46,7 @@ const CritMissMessage = ({ crit, index = 0 }: CritMissMessageProps) => {
             <p className="crit-message-stats-section">{`${secondRollMessage}`}</p>
             <p className="crit-message-stats-section vsm-margin-top">{`${critDescription}`}</p>
             <p className="crit-message-stats-section vsm-margin-top">{`${critEffect}`}</p>
-        </>
+        </div>
     );
 };
 export default CritMissMessage;

@@ -1,14 +1,14 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { Level } from "../../staticData/types";
 import { GroupRollInputs } from "../../staticData/interfaces";
 
 interface CharacterLevelProps {
-    setGroupInputs: React.Dispatch<React.SetStateAction<GroupRollInputs>>;
+    setGroupInputs: Dispatch<SetStateAction<GroupRollInputs>>;
 }
 
 /**
- * A dropdown select input for choosing the character level for a group roll.
+ * A dropdown select input for choosing the character level from 1 to 20 for a group roll.
  * @param setGroupInputs A function to update the group roll inputs
  */
 const CharacterLevelInput = ({ setGroupInputs }: CharacterLevelProps) => {

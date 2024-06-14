@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, Dispatch, SetStateAction } from "react";
 
 import CritHitMessage from "./CritHitMessage";
 import CritMissMessage from "./CritMissMessage";
@@ -15,7 +15,7 @@ interface GroupRollStatsDisplayProps {
     critType: CritType;
     normalRolls: number[];
     critRolls: Criticals;
-    setGroupRollStats: React.Dispatch<React.SetStateAction<GroupRollStats>>;
+    setGroupRollStats: Dispatch<SetStateAction<GroupRollStats>>;
 }
 
 /**
@@ -68,14 +68,7 @@ const GroupRollStatsDisplay = ({
         setGroupRollStats,
     ]);
     return (
-        <section
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                width: "100%",
-            }}
-        >
+        <section className="column-align-start">
             {normalRollsRef.current.length > 0 ? (
                 <p className="group-roll-stats-section">
                     {`Who ${

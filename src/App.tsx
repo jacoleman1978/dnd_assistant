@@ -25,7 +25,6 @@ function App() {
                             path="/dnd_assistant"
                             element={<CritHitsAndMisses />}
                         />
-
                         <Route
                             path="/dnd_assistant/find-magic-items"
                             element={<FindMagicItems />}

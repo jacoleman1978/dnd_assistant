@@ -1,9 +1,13 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface MinStatSumInputProps {
-    setMinStatSum: React.Dispatch<React.SetStateAction<number>>;
+    setMinStatSum: Dispatch<SetStateAction<number>>;
 }
 
+/**
+ * An input for choosing the minimum sum of all stats.
+ * @param setMinStatSum A function to update the minimum sum of all stats
+ */
 const MinStatSumInput = ({ setMinStatSum }: MinStatSumInputProps) => {
     return (
         <section className="row-wrap-center-center sm-margin-top">

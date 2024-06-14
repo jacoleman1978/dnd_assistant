@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import GroupRollTypeRadio from "../../src/components/GroupRollTypeRadio";
+import GroupRollTypeRadio from "../../src/components/groupRolls/GroupRollTypeRadio";
 
 describe("GroupRollTypeRadio", () => {
     test("renders with the default value", () => {

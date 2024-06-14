@@ -3,7 +3,7 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
 
-import DamageTypeSelect from "../../src/components/DamageTypeSelect";
+import DamageTypeSelect from "../../src/components/criticalRolls/DamageTypeSelect";
 
 describe("DamageTypeSelect", () => {
     test("renders the correct options", () => {
