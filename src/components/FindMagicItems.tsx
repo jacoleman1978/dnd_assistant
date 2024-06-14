@@ -1,12 +1,7 @@
-import { useState } from "react";
-import {
-    Typography,
-    MenuItem,
-    FormControl,
-    Select,
-    Button,
-} from "@mui/material";
-import { SelectChangeEvent } from "@mui/material/Select";
+import { useState, useEffect } from "react";
+
+import ItemRaritySelect from "./ItemRaritySelect";
+import Button from "./Button";
 
 import {
     defaultRarityMap,
@@ -22,11 +17,10 @@ const FindMagicItems = () => {
     );
     const [findResult, setFindResult] = useState<string>("");
 
-    const handleRarityChange = (event: SelectChangeEvent) => {
+    useEffect(() => {
         setFindResult("");
-        setFindModifier(defaultRarityMap[event.target.value as ItemRarity]);
-        setItemRarity(event.target.value as ItemRarity);
-    };
+        setFindModifier(defaultRarityMap[itemRarity]);
+    }, [itemRarity]);
 
     const handleFindItemClick = () => {
         setFindResult(
@@ -55,71 +49,39 @@ const FindMagicItems = () => {
 
     return (
         <div className="card">
-            <Typography variant="h5">Find Magic Items</Typography>
+            <h1>Find Magic Items</h1>
 
-            <FormControl>
-                <div className="row-wrap-center-center sm-margin-vertical">
-                    <label>
-                        Item Rarity:
-                        <Select
-                            sx={{ minWidth: 150 }}
-                            name="item-rarity"
-                            className="sm-margin-left"
-                            defaultValue="Common"
-                            labelId="item-rarity"
-                            id="item-rarity"
-                            value={itemRarity}
-                            label="Item Rarity"
-                            onChange={handleRarityChange}
-                        >
-                            <MenuItem value={"Common"}>Common</MenuItem>
-                            <MenuItem value={"Uncommon"}>Uncommon</MenuItem>
-                            <MenuItem value={"Rare"}>Rare</MenuItem>
-                            <MenuItem value={"Very rare"}>Very rare</MenuItem>
-                            <MenuItem value={"Legendary"}>Legendary</MenuItem>
-                        </Select>
-                    </label>
-                </div>
-            </FormControl>
+            <ItemRaritySelect setItemRarity={setItemRarity} />
 
             <div className="row-wrap-center-center sm-margin-bottom">
-                <Typography>{`Find percentage for ${itemRarity.toLowerCase()}: ${
+                <p>{`Find percentage for ${itemRarity.toLowerCase()}: ${
                     findModifier < 0 ? 0 : findModifier
-                }%`}</Typography>
-                <div>
-                    <Button
-                        sx={{ marginLeft: 1, marginRight: 1 }}
-                        variant="outlined"
-                        color="success"
-                        onClick={handleIncreaseFindModifier}
-                    >
-                        +
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        color="error"
-                        onClick={handleDecreaseFindModifier}
-                    >
-                        -
-                    </Button>
-                </div>
-            </div>
+                }%`}</p>
 
-            <div className="row-wrap-center-center">
                 <Button
-                    sx={{ marginBottom: 1, width: 200 }}
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    onClick={handleFindItemClick}
-                >
-                    Look for Item
-                </Button>
+                    label="+"
+                    className="increment-button"
+                    handleClick={handleIncreaseFindModifier}
+                />
+                <Button
+                    label="-"
+                    className="decrement-button"
+                    handleClick={handleDecreaseFindModifier}
+                />
             </div>
 
-            <Typography sx={{ textAlign: "left", width: "100%" }}>
-                {findResult}
-            </Typography>
+            <Button
+                label="Find Item"
+                className="submit-button"
+                handleClick={handleFindItemClick}
+            />
+
+            <p style={{ textAlign: "left", width: "100%", marginTop: "10px" }}>
+                {findResult.slice(0, findResult.indexOf("."))}
+            </p>
+            <p style={{ textAlign: "left", width: "100%", marginTop: "10px" }}>
+                {findResult.slice(findResult.indexOf(".") + 1)}
+            </p>
         </div>
     );
 };

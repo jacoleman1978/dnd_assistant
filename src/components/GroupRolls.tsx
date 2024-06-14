@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { Typography, Button } from "@mui/material";
 
-import GroupRollTypeSelect from "./GroupRollTypeSelect";
+import GroupRollTypeRadio from "./GroupRollTypeRadio";
 import NumberOfRollsInput from "./NumberOfRollsInput";
 import TargetDCInput from "./TargetDCInput";
 import ModifierInput from "./ModifierInput";
 import AdvantageTypeSelect from "./AdvantageTypeSelect";
-import CharacterLevelSelect from "./CharacterLevelSelect";
+import CharacterLevelInput from "./CharacterLevelInput";
 import DamageTypeSelect from "./DamageTypeSelect";
 import SpellLevelSelect from "./SpellLevelSelect";
-import SucceededStatsDisplay from "./SucceededStatsDisplay";
-import FailedStatsDisplay from "./FailedStatsDisplay";
+import GroupRollStatsDisplay from "./GroupRollStatsDisplay";
+import Button from "./Button";
 
 import { getGroupRollResults } from "../helperFunctions/rollForGroups";
 import { GroupRollType } from "../staticData/types";
 import { GroupRollInputs, GroupRollStats } from "../staticData/interfaces";
+
 
 // A component for group attack or save rolls
 const GroupRolls = () => {
@@ -70,10 +70,9 @@ const GroupRolls = () => {
 
     return (
         <div className="card">
-            <Typography variant="h5">Group Rolls</Typography>
+            <h1>Group Rolls</h1>
 
-            <GroupRollTypeSelect
-                groupRollType={groupRollType}
+            <GroupRollTypeRadio
                 setGroupRollType={setGroupRollType}
             />
 
@@ -90,40 +89,27 @@ const GroupRolls = () => {
             />
 
             <AdvantageTypeSelect
-                advantageType={groupRollInputs.advantageType}
                 setGroupInputs={setGroupRollInputs}
             />
 
             {groupRollType === "Attacks" ? (
                 <>
-                    <CharacterLevelSelect
-                        charLevel={groupRollInputs.charLevel}
+                    <CharacterLevelInput
                         setGroupInputs={setGroupRollInputs}
                     />
                     <DamageTypeSelect
-                        damageType={groupRollInputs.damageType}
                         setGroupInputs={setGroupRollInputs}
                     />
 
                     {groupRollInputs.damageType === "Magic" ? (
                         <SpellLevelSelect
-                            spellLevel={groupRollInputs.spellLevel}
                             setGroupInputs={setGroupRollInputs}
                         />
                     ) : null}
                 </>
             ) : null}
-            <div className="row-wrap-center-center">
-                <Button
-                    sx={{ marginBottom: 1, width: 200 }}
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    onClick={handleGroupRoll}
-                >
-                    Roll Critical
-                </Button>
-            </div>
+
+            <Button label="Roll Critical" className="submit-button" handleClick={handleGroupRoll} />
 
             <div
                 style={{
@@ -133,15 +119,25 @@ const GroupRolls = () => {
                     width: "100%",
                 }}
             >
-                <SucceededStatsDisplay
-                    groupRollType={groupRollType}
-                    groupRollStats={groupRollStats}
+                <GroupRollStatsDisplay
+                    groupRollType = {groupRollType}
+                    critType = "Hit"
+                    normalRolls={groupRollStats.whoSucceeded}
+                    critRolls={{
+                        whoHasNormalCritical: groupRollStats.whoHasNormalCriticalHit,
+                        whoHasTableCritical: groupRollStats.whoHasTableCriticalHit,
+                    }}
                     setGroupRollStats={setGroupRollStats}
                 />
 
-                <FailedStatsDisplay
+                <GroupRollStatsDisplay
                     groupRollType={groupRollType}
-                    groupRollStats={groupRollStats}
+                    critType="Miss"
+                    normalRolls={groupRollStats.whoFailed}
+                    critRolls={{
+                        whoHasNormalCritical: groupRollStats.whoHasNormalCriticalMiss,
+                        whoHasTableCritical: groupRollStats.whoHasTableCriticalMiss,
+                    }}
                     setGroupRollStats={setGroupRollStats}
                 />
             </div>

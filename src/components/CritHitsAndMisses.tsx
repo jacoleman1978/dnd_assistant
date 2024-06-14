@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Typography, Button } from "@mui/material";
 
-import CharacterLevelSelect from "./CharacterLevelSelect";
+import CharacterLevelInput from "./CharacterLevelInput";
 import DamageTypeSelect from "./DamageTypeSelect";
 import SpellLevelSelect from "./SpellLevelSelect";
-import CritTypeSelect from "./CritTypeSelect";
+import CritTypeRadio from "./CritTypeRadio";
+import Button from "./Button";
 
 import { rollCritical } from "../helperFunctions/rollCriticals";
 import { CritType } from "../staticData/types";
@@ -56,38 +56,24 @@ const CritHitsAndMisses = () => {
     };
 
     return (
-        <div className="card">
-            <Typography variant="h5">Critical Hits and Misses</Typography>
-            <CritTypeSelect setCritType={setCritType} />
+        <section className="card">
+            <h1>Critical Hits and Misses</h1>
 
-            <CharacterLevelSelect
-                charLevel={groupInputs.charLevel}
-                setGroupInputs={setGroupInputs}
-            />
+            <CritTypeRadio setCritType={setCritType} />
 
-            <DamageTypeSelect
-                damageType={groupInputs.damageType}
-                setGroupInputs={setGroupInputs}
-            />
+            <CharacterLevelInput setGroupInputs={setGroupInputs} />
+
+            <DamageTypeSelect setGroupInputs={setGroupInputs} />
 
             {groupInputs.damageType === "Magic" ? (
-                <SpellLevelSelect
-                    spellLevel={groupInputs.spellLevel}
-                    setGroupInputs={setGroupInputs}
-                />
+                <SpellLevelSelect setGroupInputs={setGroupInputs} />
             ) : null}
 
-            <div className="row-wrap-center-center">
-                <Button
-                    sx={{ marginBottom: 1, width: 200 }}
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    onClick={handleRollCrit}
-                >
-                    Roll Critical
-                </Button>
-            </div>
+            <Button
+                label="Roll Critical"
+                className="submit-button"
+                handleClick={handleRollCrit}
+            />
 
             <div
                 style={{
@@ -98,18 +84,20 @@ const CritHitsAndMisses = () => {
                 }}
             >
                 {critResult.map((result, index) => (
-                    <Typography
+                    <p
                         key={`crit-${index}`}
-                        sx={{
+                        style={{
                             textAlign: "left",
-                            marginLeft: [0, 2, 4].includes(index) ? 0 : 3,
+                            marginLeft: [0, 2, 4].includes(index)
+                                ? "0px"
+                                : "20px",
                         }}
                     >
                         {result}
-                    </Typography>
+                    </p>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 export default CritHitsAndMisses;

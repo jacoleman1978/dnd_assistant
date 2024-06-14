@@ -1,5 +1,4 @@
-import { FormControl } from "@mui/material";
-import { SelectChangeEvent } from "@mui/material/Select";
+import React, { ChangeEvent } from "react";
 
 import { GroupRollType, Modifier } from "../staticData/types";
 import { GroupRollInputs } from "../staticData/interfaces";
@@ -18,30 +17,27 @@ const ModifierInput = ({
     groupRollType,
     setGroupInputs,
 }: ModifierInputProps) => {
-    const handleModifierChange = (event: SelectChangeEvent) => {
+    const handleModifierChange = (event: ChangeEvent<HTMLInputElement>) => {
         setGroupInputs((prev) => ({
             ...prev,
             modifier: parseInt(event.target.value) as Modifier,
         }));
     };
     return (
-        <FormControl>
-            <div className="row-wrap-center-center sm-margin-top">
-                <label htmlFor="modifier" className="sm-margin-right">
-                    {`${
-                        groupRollType === "Attacks" ? "To Hit" : "Save"
-                    } Modifier:`}
-                </label>
-                <input
-                    type="number"
-                    id="modifier"
-                    defaultValue={3}
-                    min="-5"
-                    max="30"
-                    onChange={handleModifierChange}
-                />
-            </div>
-        </FormControl>
+        <section className="row-wrap-center-center sm-margin-top">
+            <label htmlFor="modifier">
+                {`${groupRollType === "Attacks" ? "To Hit" : "Save"} Modifier:`}
+            </label>
+            <input
+                className="input-field"
+                type="number"
+                id="modifier"
+                defaultValue={3}
+                min="-5"
+                max="30"
+                onChange={handleModifierChange}
+            />
+        </section>
     );
 };
 export default ModifierInput;

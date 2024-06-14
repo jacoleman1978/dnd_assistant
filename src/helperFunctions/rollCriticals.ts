@@ -146,7 +146,7 @@ export const criticalMissMessage = (
     } else if (isCritMiss) {
         let rolls: number[] = [];
 
-        let message = `Uh oh... you rolled ${firstD100}%! It is a critical miss.\n${secondD100}% on the table: ${weaponFumble(
+        let message = `Uh oh... you rolled ${firstD100}%! It is a critical miss!\n${secondD100}% on the table: ${weaponFumble(
             secondD100
         )}\n`;
 

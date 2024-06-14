@@ -6,8 +6,8 @@ import {Outlet, Link as RouterLink} from 'react-router-dom';
  */
 function NavTabs() {
   return (
-    <div>
-      <nav className="row-wrap-center-center">
+    <nav className="sm-margin-bottom">
+      <div className="row-wrap-center-center">
         <ul className="row-wrap-center-center sm-margin-top">
           <li className="sm-margin-right">
             <RouterLink to="/dnd_assistant">Criticals</RouterLink>
@@ -18,13 +18,13 @@ function NavTabs() {
           <li className="sm-margin-left sm-margin-right">
             <RouterLink to="/dnd_assistant/group-rolls">Group Rolls</RouterLink>
           </li>
-          <li className="sm-margin-left sm-margin-right">
+          <li className="sm-margin-left">
             <RouterLink to="/dnd_assistant/stat-set">Stat Set</RouterLink>
           </li>
         </ul>
-      </nav>
+      </div>
       <Outlet />
-    </div>
+    </nav>
   );
 }
 

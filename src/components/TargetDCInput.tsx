@@ -1,5 +1,4 @@
-import { FormControl } from "@mui/material";
-import { SelectChangeEvent } from "@mui/material/Select";
+import React, { ChangeEvent } from "react";
 
 import { GroupRollType } from "../staticData/types";
 import { GroupRollInputs } from "../staticData/interfaces";
@@ -18,28 +17,27 @@ const TargetDCInput = ({
     groupRollType,
     setGroupInputs,
 }: TargetDCInputProps) => {
-    const handleTargetDCChange = (event: SelectChangeEvent) => {
+    const handleTargetDCChange = (event: ChangeEvent<HTMLInputElement>) => {
         setGroupInputs((prev) => ({
             ...prev,
             targetDC: parseInt(event.target.value),
         }));
     };
     return (
-        <FormControl>
-            <div className="row-wrap-center-center sm-margin-top">
-                <label htmlFor="target-dc" className="sm-margin-right">
-                    {`Target ${groupRollType === "Attacks" ? "AC" : "DC"}:`}
-                </label>
-                <input
-                    type="number"
-                    id="target-dc"
-                    defaultValue={15}
-                    min="1"
-                    max="35"
-                    onChange={handleTargetDCChange}
-                />
-            </div>
-        </FormControl>
+        <section className="row-wrap-center-center sm-margin-top">
+            <label htmlFor="target-dc">
+                {`Target ${groupRollType === "Attacks" ? "AC" : "DC"}:`}
+            </label>
+            <input
+                className="input-field"
+                type="number"
+                id="target-dc"
+                defaultValue={15}
+                min="1"
+                max="35"
+                onChange={handleTargetDCChange}
+            />
+        </section>
     );
 };
 export default TargetDCInput;

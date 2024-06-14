@@ -257,7 +257,7 @@ describe("criticalMissMessage", () => {
         );
         weaponFumbleMessage = new RegExp(weaponFumble(98));
         expect(criticalMissMessage("Bludgeoning", 1, 17, 98)).toMatch(
-            /Uh oh\.\.\. you rolled 17%! It is a critical miss\.\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
+            /Uh oh\.\.\. you rolled 17%! It is a critical miss!\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
         );
 
         expect(criticalMissMessage("Bludgeoning", 1, 12, 99)).toMatch(
@@ -279,7 +279,7 @@ describe("criticalMissMessage", () => {
         );
         weaponFumbleMessage = new RegExp(weaponFumble(98));
         expect(criticalMissMessage("Slashing", 1, 17, 98)).toMatch(
-            /Uh oh\.\.\. you rolled 17%! It is a critical miss\.\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
+            /Uh oh\.\.\. you rolled 17%! It is a critical miss!\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
         );
 
         expect(criticalMissMessage("Slashing", 1, 12, 99)).toMatch(
@@ -301,7 +301,7 @@ describe("criticalMissMessage", () => {
         );
         weaponFumbleMessage = new RegExp(weaponFumble(98));
         expect(criticalMissMessage("Piercing", 1, 17, 98)).toMatch(
-            /Uh oh\.\.\. you rolled 17%! It is a critical miss\.\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
+            /Uh oh\.\.\. you rolled 17%! It is a critical miss!\n98% on the table: Distracted. Opponent's next attack at \+3 to hit\./
         );
 
         expect(criticalMissMessage("Piercing", 1, 12, 99)).toMatch(
