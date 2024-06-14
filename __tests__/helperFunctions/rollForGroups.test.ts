@@ -73,7 +73,6 @@ describe("rollD20sForGroup", () => {
         expect(disadvantageOnes).toBeGreaterThan(advantageOnes);
 
         expect(disadvantageTwenties).toBeLessThan(advantageTwenties);
-    
     });
 });
 

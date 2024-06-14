@@ -8,10 +8,7 @@ import TargetDCInput from "../../src/components/TargetDCInput";
 describe("TargetDCInput", () => {
     test("renders with the default value and enforces min/max", () => {
         render(
-            <TargetDCInput
-                groupRollType="Attacks"
-                setGroupInputs={jest.fn()}
-            />
+            <TargetDCInput groupRollType="Attacks" setGroupInputs={jest.fn()} />
         );
         const input = screen.getByRole("spinbutton");
         expect(input).toHaveValue(15);

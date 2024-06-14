@@ -12,7 +12,8 @@ describe("ItemRaritySelect", () => {
         const itemRaritySelect = screen.getByLabelText("Item Rarity:");
         expect(itemRaritySelect).toBeInTheDocument();
 
-        const itemRarityOptions = within(itemRaritySelect).getAllByRole("option");
+        const itemRarityOptions =
+            within(itemRaritySelect).getAllByRole("option");
         expect(itemRarityOptions).toHaveLength(5);
         expect(itemRarityOptions[0]).toHaveTextContent("Common");
         expect(itemRarityOptions[1]).toHaveTextContent("Uncommon");

@@ -1,4 +1,10 @@
-import { AdvantageType, DamageType, Level, Modifier, SpellLevel } from "./types";
+import {
+    AdvantageType,
+    DamageType,
+    Level,
+    Modifier,
+    SpellLevel,
+} from "./types";
 
 export interface GroupRolls {
     [key: string]: number[];

@@ -16,7 +16,9 @@ describe("AtLeastOneStatInput", () => {
 
     test("should change the value when the number is changed", () => {
         const setAtLeastOneStatIs = jest.fn();
-        render(<AtLeastOneStatInput setAtLeastOneStatIs={setAtLeastOneStatIs} />);
+        render(
+            <AtLeastOneStatInput setAtLeastOneStatIs={setAtLeastOneStatIs} />
+        );
 
         expect(screen.getByDisplayValue("3")).toBeInTheDocument();
 

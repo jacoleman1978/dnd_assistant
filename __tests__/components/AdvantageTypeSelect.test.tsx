@@ -22,14 +22,18 @@ describe("AdvantageTypeSelect", () => {
 
         expect(screen.getByDisplayValue("Normal")).toBeInTheDocument();
         expect(screen.queryByDisplayValue("Advantage")).not.toBeInTheDocument();
-        expect(screen.queryByDisplayValue("Disadvantage")).not.toBeInTheDocument()
+        expect(
+            screen.queryByDisplayValue("Disadvantage")
+        ).not.toBeInTheDocument();
 
         const select = screen.getByRole("combobox");
         fireEvent.change(select, { target: { value: "Advantage" } });
 
         expect(screen.queryByDisplayValue("Normal")).not.toBeInTheDocument();
         expect(screen.getByDisplayValue("Advantage")).toBeInTheDocument();
-        expect(screen.queryByDisplayValue("Disadvantage")).not.toBeInTheDocument();
+        expect(
+            screen.queryByDisplayValue("Disadvantage")
+        ).not.toBeInTheDocument();
 
         fireEvent.change(select, { target: { value: "Disadvantage" } });
         expect(screen.queryByDisplayValue("Normal")).not.toBeInTheDocument();

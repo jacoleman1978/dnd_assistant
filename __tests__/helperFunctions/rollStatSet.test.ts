@@ -35,7 +35,7 @@ describe("rollStat", () => {
     test("should return a number greater than or equal to 10", () => {
         for (let i = 0; i < 1000; i++) {
             const result = rollStat(10);
-    
+
             expect(result).toBeGreaterThanOrEqual(10);
             expect(result).toBeLessThanOrEqual(18);
         }

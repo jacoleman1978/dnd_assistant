@@ -15,7 +15,6 @@ import { getGroupRollResults } from "../helperFunctions/rollForGroups";
 import { GroupRollType } from "../staticData/types";
 import { GroupRollInputs, GroupRollStats } from "../staticData/interfaces";
 
-
 // A component for group attack or save rolls
 const GroupRolls = () => {
     const [groupRollType, setGroupRollType] =
@@ -72,9 +71,7 @@ const GroupRolls = () => {
         <div className="card">
             <h1>Group Rolls</h1>
 
-            <GroupRollTypeRadio
-                setGroupRollType={setGroupRollType}
-            />
+            <GroupRollTypeRadio setGroupRollType={setGroupRollType} />
 
             <NumberOfRollsInput setGroupInputs={setGroupRollInputs} />
 
@@ -88,28 +85,24 @@ const GroupRolls = () => {
                 setGroupInputs={setGroupRollInputs}
             />
 
-            <AdvantageTypeSelect
-                setGroupInputs={setGroupRollInputs}
-            />
+            <AdvantageTypeSelect setGroupInputs={setGroupRollInputs} />
 
             {groupRollType === "Attacks" ? (
                 <>
-                    <CharacterLevelInput
-                        setGroupInputs={setGroupRollInputs}
-                    />
-                    <DamageTypeSelect
-                        setGroupInputs={setGroupRollInputs}
-                    />
+                    <CharacterLevelInput setGroupInputs={setGroupRollInputs} />
+                    <DamageTypeSelect setGroupInputs={setGroupRollInputs} />
 
                     {groupRollInputs.damageType === "Magic" ? (
-                        <SpellLevelSelect
-                            setGroupInputs={setGroupRollInputs}
-                        />
+                        <SpellLevelSelect setGroupInputs={setGroupRollInputs} />
                     ) : null}
                 </>
             ) : null}
 
-            <Button label="Roll Critical" className="submit-button" handleClick={handleGroupRoll} />
+            <Button
+                label="Roll Critical"
+                className="submit-button"
+                handleClick={handleGroupRoll}
+            />
 
             <div
                 style={{
@@ -120,12 +113,14 @@ const GroupRolls = () => {
                 }}
             >
                 <GroupRollStatsDisplay
-                    groupRollType = {groupRollType}
-                    critType = "Hit"
+                    groupRollType={groupRollType}
+                    critType="Hit"
                     normalRolls={groupRollStats.whoSucceeded}
                     critRolls={{
-                        whoHasNormalCritical: groupRollStats.whoHasNormalCriticalHit,
-                        whoHasTableCritical: groupRollStats.whoHasTableCriticalHit,
+                        whoHasNormalCritical:
+                            groupRollStats.whoHasNormalCriticalHit,
+                        whoHasTableCritical:
+                            groupRollStats.whoHasTableCriticalHit,
                     }}
                     setGroupRollStats={setGroupRollStats}
                 />
@@ -135,8 +130,10 @@ const GroupRolls = () => {
                     critType="Miss"
                     normalRolls={groupRollStats.whoFailed}
                     critRolls={{
-                        whoHasNormalCritical: groupRollStats.whoHasNormalCriticalMiss,
-                        whoHasTableCritical: groupRollStats.whoHasTableCriticalMiss,
+                        whoHasNormalCritical:
+                            groupRollStats.whoHasNormalCriticalMiss,
+                        whoHasTableCritical:
+                            groupRollStats.whoHasTableCriticalMiss,
                     }}
                     setGroupRollStats={setGroupRollStats}
                 />

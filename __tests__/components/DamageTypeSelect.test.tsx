@@ -22,7 +22,9 @@ describe("DamageTypeSelect", () => {
         render(<DamageTypeSelect setGroupInputs={setGroupInputs} />);
 
         expect(screen.getByDisplayValue("Slashing")).toBeInTheDocument();
-        expect(screen.queryByDisplayValue("Bludgeoning")).not.toBeInTheDocument();
+        expect(
+            screen.queryByDisplayValue("Bludgeoning")
+        ).not.toBeInTheDocument();
         expect(screen.queryByDisplayValue("Piercing")).not.toBeInTheDocument();
         expect(screen.queryByDisplayValue("Magic")).not.toBeInTheDocument();
 
@@ -36,13 +38,17 @@ describe("DamageTypeSelect", () => {
 
         fireEvent.change(select, { target: { value: "Piercing" } });
         expect(screen.queryByDisplayValue("Slashing")).not.toBeInTheDocument();
-        expect(screen.queryByDisplayValue("Bludgeoning")).not.toBeInTheDocument();
+        expect(
+            screen.queryByDisplayValue("Bludgeoning")
+        ).not.toBeInTheDocument();
         expect(screen.getByDisplayValue("Piercing")).toBeInTheDocument();
         expect(screen.queryByDisplayValue("Magic")).not.toBeInTheDocument();
 
         fireEvent.change(select, { target: { value: "Magic" } });
         expect(screen.queryByDisplayValue("Slashing")).not.toBeInTheDocument();
-        expect(screen.queryByDisplayValue("Bludgeoning")).not.toBeInTheDocument();
+        expect(
+            screen.queryByDisplayValue("Bludgeoning")
+        ).not.toBeInTheDocument();
         expect(screen.queryByDisplayValue("Piercing")).not.toBeInTheDocument();
         expect(screen.getByDisplayValue("Magic")).toBeInTheDocument();
     });

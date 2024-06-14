@@ -246,7 +246,9 @@ describe("selectDiceByAdvantageType", () => {
         const secondRoll = 0;
         expect(() =>
             selectDiceByAdvantageType(firstRoll, secondRoll, "Normal")
-        ).toThrow("Second roll must be 1 or greater for selectDiceByAdvantage.");
+        ).toThrow(
+            "Second roll must be 1 or greater for selectDiceByAdvantage."
+        );
     });
 
     test("should throw an error when second roll is greater than 20", () => {
