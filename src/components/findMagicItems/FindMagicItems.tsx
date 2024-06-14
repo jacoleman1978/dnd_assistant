@@ -63,51 +63,46 @@ const FindMagicItems = () => {
             </section>
             <section className="card">
                 <section>
-                    <p className="source sm-margin-bottom">
+                    <p>
                         The equations used are from page 126 of{" "}
                         <em>Xanathar's Guide to Everything</em>, using item
                         rarity to determine the cost of a magic item. Consumable
                         items have half the cost of those shown.
                     </p>
-                    <p className="source med-margin-top">Equations used:</p>
+                    <p className="sm-margin-top">Equations used:</p>
                     <ul className="column-align-start sm-margin-left">
-                        <li className="source">Common: </li>
-                        <ul>
-                            <li className="subbullet">Cost = 10 * (1d6 + 1)</li>
-                            <li className="subbullet">
-                                Price Range: 20 to 70 gp
-                            </li>
-                        </ul>
-                        <li className="source">Uncommon:</li>
-                        <ul>
-                            <li className="subbullet">Cost = 100 * (1d6)</li>
-                            <li className="subbullet">
-                                Price Range: 100 to 600 gp
-                            </li>
-                        </ul>
-                        <li className="source">Rare:</li>
-                        <ul>
-                            <li className="subbullet">Cost = 1,000 * (2d10)</li>
-                            <li className="subbullet">
-                                Price Range: 2,000 to 20,000 gp
-                            </li>
-                        </ul>
-                        <li className="source">Very Rare:</li>
-                        <ul>
-                            <li className="subbullet">
-                                Cost = 10,000 * (1d4 + 1)
-                            </li>
-                            <li className="subbullet">
-                                Price Range: 20,000 to 50,000 gp
-                            </li>
-                        </ul>
-                        <li className="source">Legendary:</li>
-                        <ul>
-                            <li className="subbullet">Cost = 25,000 * (2d6)</li>
-                            <li className="subbullet">
-                                Price Range: 50,000 to 300,000 gp
-                            </li>
-                        </ul>
+                        <li>Common: </li>
+
+                        <li className="subbullet">Cost = 10 * (1d6 + 1)</li>
+                        <li className="subbullet">Price Range: 20 to 70 gp</li>
+
+                        <li>Uncommon:</li>
+
+                        <li className="subbullet">Cost = 100 * (1d6)</li>
+                        <li className="subbullet">
+                            Price Range: 100 to 600 gp
+                        </li>
+
+                        <li>Rare:</li>
+
+                        <li className="subbullet">Cost = 1,000 * (2d10)</li>
+                        <li className="subbullet">
+                            Price Range: 2,000 to 20,000 gp
+                        </li>
+
+                        <li>Very Rare:</li>
+
+                        <li className="subbullet">Cost = 10,000 * (1d4 + 1)</li>
+                        <li className="subbullet">
+                            Price Range: 20,000 to 50,000 gp
+                        </li>
+
+                        <li>Legendary:</li>
+
+                        <li className="subbullet">Cost = 25,000 * (2d6)</li>
+                        <li className="subbullet">
+                            Price Range: 50,000 to 300,000 gp
+                        </li>
                     </ul>
                 </section>
 

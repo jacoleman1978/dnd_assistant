@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, Link as RouterLink, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 /**
  *
@@ -18,7 +18,7 @@ function NavTabs() {
                 setActiveTab("Items");
                 break;
             case "group-rolls":
-                setActiveTab("Group Rolls");
+                setActiveTab("GroupRolls");
                 break;
             case "stat-set":
                 setActiveTab("StatSet");
@@ -29,60 +29,48 @@ function NavTabs() {
     }, [pathname]);
 
     return (
-        <nav>
+        <nav className="vsm-margin-top">
             <div className="row-wrap-center-center">
-                <ul className="row-wrap-center-center sm-margin-top">
-                    <RouterLink to="/dnd_assistant">
-                        <li
-                            onClick={() => setActiveTab("Criticals")}
-                            className={
-                                activeTab === "Criticals" ? "active-li" : ""
-                            }
-                        >
-                            Criticals
-                        </li>
-                    </RouterLink>
-
-                    <RouterLink to="/dnd_assistant/find-magic-items">
-                        <li
-                            onClick={() => setActiveTab("Items")}
-                            className={
-                                activeTab === "Items"
-                                    ? "active-li vsm-margin-left"
-                                    : "vsm-margin-left"
-                            }
-                        >
-                            Find Magic Items
-                        </li>
-                    </RouterLink>
-
-                    <RouterLink to="/dnd_assistant/group-rolls">
-                        <li
-                            onClick={() => setActiveTab("Group Rolls")}
-                            className={
-                                activeTab === "Group Rolls"
-                                    ? "active-li vsm-margin-left"
-                                    : "vsm-margin-left"
-                            }
-                        >
-                            Group Rolls
-                        </li>
-                    </RouterLink>
-
-                    <RouterLink to="/dnd_assistant/stat-set">
-                        <li
-                            onClick={() => setActiveTab("StatSet")}
-                            className={
-                                activeTab === "StatSet"
-                                    ? "active-li vsm-margin-left"
-                                    : "vsm-margin-left"
-                            }
-                        >
-                            Stat Set
-                        </li>
-                    </RouterLink>
-                </ul>
+                <div
+                    className={
+                        activeTab === "Criticals"
+                            ? "nav-tabs active-tab"
+                            : "nav-tabs"
+                    }
+                >
+                    <Link to="/dnd_assistant">Criticals</Link>
+                </div>
+                <div
+                    className={
+                        activeTab === "Items"
+                            ? "nav-tabs vsm-margin-left active-tab"
+                            : "nav-tabs vsm-margin-left"
+                    }
+                >
+                    <Link to="/dnd_assistant/find-magic-items">
+                        Find Magic Items
+                    </Link>
+                </div>
+                <div
+                    className={
+                        activeTab === "GroupRolls"
+                            ? "nav-tabs vsm-margin-left active-tab"
+                            : "nav-tabs vsm-margin-left"
+                    }
+                >
+                    <Link to="/dnd_assistant/group-rolls">Group Rolls</Link>
+                </div>
+                <div
+                    className={
+                        activeTab === "StatSet"
+                            ? "nav-tabs vsm-margin-left active-tab"
+                            : "nav-tabs vsm-margin-left"
+                    }
+                >
+                    <Link to="/dnd_assistant/stat-set">Stat Set</Link>
+                </div>
             </div>
+
             <Outlet />
         </nav>
     );

@@ -21,7 +21,8 @@ const GroupRollTypeRadio = ({ setGroupRollType }: GroupRollTypeRadioProps) => {
         <section className="row-wrap-center-center sm-margin-vertical">
             <p className="sm-margin-right">Group Roll Type:</p>
 
-            <div className="radio-group">
+            <fieldset className="radio-group">
+                <legend className="hidden">Group Roll Type</legend>
                 <div className="radio-button">
                     <input
                         type="radio"
@@ -54,7 +55,7 @@ const GroupRollTypeRadio = ({ setGroupRollType }: GroupRollTypeRadioProps) => {
                         Saves
                     </label>
                 </div>
-            </div>
+            </fieldset>
         </section>
     );
 };

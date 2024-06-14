@@ -134,7 +134,7 @@ const GroupRolls = () => {
             </section>
         </section>
         <section className="card">
-            <p className="source med-margin-top">
+            <p>
                 Often in D&D, you need to roll attacks or saves for a group of enemies, conjured creatures, or summoned creatures. Often this task is time consuming and slows down combat. This tool is designed to help speed up the process by allowing you to roll for multiple creatures at once.
             </p>
         </section>

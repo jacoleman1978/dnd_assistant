@@ -94,11 +94,11 @@ const CritHitsAndMisses = () => {
             </section>
             <section className="card sm-margin-top">
                 <ul className="sm-margin-left">
-                    <li className="source">
+                    <li>
                         The melee crit tables were published by Carl Parlagreco,
                         "Good Hits & Bad Misses", in Dragon #39 (July, 1980).
                     </li>
-                    <li className="source">
+                    <li>
                         Magic crits were posted on the{" "}
                         <a href="https://d20despot.blogspot.com/2015/07/critical-hit-tables-scaling-crits-for.html">
                             D20 Despot blog

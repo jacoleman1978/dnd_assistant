@@ -17,7 +17,8 @@ const CritTypeRadio = ({ setCritType }: CritTypeRadioProps) => {
     return (
         <section className="row-wrap-center-center sm-margin-vertical">
             <p className="sm-margin-right">Crit Type:</p>
-            <div className="radio-group">
+            <fieldset className="radio-group">
+                <legend className="hidden">Crit Type</legend>
                 <div className="radio-button">
                     <input
                         type="radio"
@@ -47,7 +48,7 @@ const CritTypeRadio = ({ setCritType }: CritTypeRadioProps) => {
                         Miss
                     </label>
                 </div>
-            </div>
+            </fieldset>
         </section>
     );
 };
