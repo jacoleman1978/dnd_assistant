@@ -24,7 +24,7 @@ const ModifierInput = ({
         }));
     };
     return (
-        <section className="row-wrap-center-center sm-margin-top">
+        <section className="row-wrap-center-center sm-margin-top sm-entry-box">
             <label htmlFor="modifier">
                 {`${groupRollType === "Attacks" ? "To Hit" : "Save"} Modifier:`}
             </label>

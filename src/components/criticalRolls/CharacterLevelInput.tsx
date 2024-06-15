@@ -19,7 +19,7 @@ const CharacterLevelInput = ({ setGroupInputs }: CharacterLevelProps) => {
         }));
     };
     return (
-        <section className="row-wrap-center-center">
+        <section className="row-wrap-center-center sm-entry-box">
             <label htmlFor="char-level">Character Level:</label>
             <input
                 className="input-field"

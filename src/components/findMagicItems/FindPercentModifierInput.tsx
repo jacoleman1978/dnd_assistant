@@ -15,7 +15,7 @@ const FindPercentModifierInput = ({
     setFindModifier,
 }: FindPercentModifierInputProps) => {
     return (
-        <section className="row-wrap-center-center sm-margin-bottom">
+        <section className="row-wrap-center-center sm-margin-bottom sm-entry-box">
             <label htmlFor="find-modifier">Find Modifier:</label>
             <input
                 className="input-field"

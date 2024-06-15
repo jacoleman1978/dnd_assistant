@@ -29,45 +29,53 @@ function NavTabs() {
     }, [pathname]);
 
     return (
-        <nav className="vsm-margin-top">
+        <nav>
             <div className="row-wrap-center-center">
                 <div
-                    className={
-                        activeTab === "Criticals"
-                            ? "nav-tabs active-tab"
-                            : "nav-tabs"
-                    }
+                    className="nav-tabs-button-group"
                 >
-                    <Link to="/dnd_assistant">Criticals</Link>
+                    <div
+                        className={
+                            activeTab === "Criticals"
+                                ? "nav-tabs active-tab"
+                                : "nav-tabs"
+                        }
+                    >
+                        <Link to="/dnd_assistant">Criticals</Link>
+                    </div>
+                    <div
+                        className={
+                            activeTab === "Items"
+                                ? "nav-tabs vsm-margin-left active-tab nav-tabs-evens"
+                                : "nav-tabs vsm-margin-left nav-tabs-evens"
+                        }
+                    >
+                        <Link to="/dnd_assistant/find-magic-items">
+                            Find Items
+                        </Link>
+                    </div>
                 </div>
                 <div
-                    className={
-                        activeTab === "Items"
-                            ? "nav-tabs vsm-margin-left active-tab"
-                            : "nav-tabs vsm-margin-left"
-                    }
+                    className="nav-tabs-button-group nav-tabs-group2"
                 >
-                    <Link to="/dnd_assistant/find-magic-items">
-                        Find Magic Items
-                    </Link>
-                </div>
-                <div
-                    className={
-                        activeTab === "GroupRolls"
-                            ? "nav-tabs vsm-margin-left active-tab"
-                            : "nav-tabs vsm-margin-left"
-                    }
-                >
-                    <Link to="/dnd_assistant/group-rolls">Group Rolls</Link>
-                </div>
-                <div
-                    className={
-                        activeTab === "StatSet"
-                            ? "nav-tabs vsm-margin-left active-tab"
-                            : "nav-tabs vsm-margin-left"
-                    }
-                >
-                    <Link to="/dnd_assistant/stat-set">Stat Set</Link>
+                    <div
+                        className={
+                            activeTab === "GroupRolls"
+                                ? "nav-tabs vsm-margin-left active-tab"
+                                : "nav-tabs vsm-margin-left"
+                        }
+                    >
+                        <Link to="/dnd_assistant/group-rolls">Group Rolls</Link>
+                    </div>
+                    <div
+                        className={
+                            activeTab === "StatSet"
+                                ? "nav-tabs vsm-margin-left active-tab nav-tabs-evens"
+                                : "nav-tabs vsm-margin-left nav-tabs-evens"
+                        }
+                    >
+                        <Link to="/dnd_assistant/stat-set">Stat Set</Link>
+                    </div>
                 </div>
             </div>
 

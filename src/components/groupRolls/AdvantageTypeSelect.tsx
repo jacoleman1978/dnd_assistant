@@ -21,7 +21,7 @@ const AdvantageTypeSelect = ({ setGroupInputs }: AdvantageTypeSelectProps) => {
         }));
     };
     return (
-        <section className="row-wrap-center-center sm-margin-vertical">
+        <section className="row-wrap-center-center sm-margin-vertical sm-entry-box">
             <label htmlFor="advantage-type">Advantage Type:</label>
             <select
                 id="advantage-type"

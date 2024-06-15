@@ -24,7 +24,7 @@ const TargetDCInput = ({
         }));
     };
     return (
-        <section className="row-wrap-center-center sm-margin-top">
+        <section className="row-wrap-center-center sm-margin-top sm-entry-box">
             <label htmlFor="target-dc">
                 {`Target ${groupRollType === "Attacks" ? "AC" : "DC"}:`}
             </label>

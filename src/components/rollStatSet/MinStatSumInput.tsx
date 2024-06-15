@@ -10,7 +10,7 @@ interface MinStatSumInputProps {
  */
 const MinStatSumInput = ({ setMinStatSum }: MinStatSumInputProps) => {
     return (
-        <section className="row-wrap-center-center sm-margin-top">
+        <section className="row-wrap-center-center sm-margin-top sm-entry-box">
             <label htmlFor="minStatSum">Min Stat Sum:</label>
             <input
                 type="number"

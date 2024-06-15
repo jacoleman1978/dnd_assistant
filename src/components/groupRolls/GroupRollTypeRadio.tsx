@@ -18,11 +18,11 @@ const GroupRollTypeRadio = ({ setGroupRollType }: GroupRollTypeRadioProps) => {
         setGroupRollType(event.target.value as GroupRollType);
     };
     return (
-        <section className="row-wrap-center-center sm-margin-vertical">
-            <p className="sm-margin-right">Group Roll Type:</p>
+        <section className="row-wrap-center-center sm-margin-vertical sm-radio-group">
+            <p className="sm-margin-right sm-screen-margin-right">Roll Type:</p>
 
             <fieldset className="radio-group">
-                <legend className="hidden">Group Roll Type</legend>
+                <legend className="hidden">Roll Type</legend>
                 <div className="radio-button">
                     <input
                         type="radio"

@@ -15,7 +15,7 @@ const ItemRaritySelect = ({ setItemRarity }: ItemRaritySelectProps) => {
         setItemRarity(event.target.value as ItemRarity);
     };
     return (
-        <section className="row-wrap-center-center sm-margin-vertical">
+        <section className="row-wrap-center-center sm-margin-vertical sm-entry-box sm-screen-margin-right">
             <label htmlFor="item-rarity">Item Rarity:</label>
             <select
                 id="item-rarity"

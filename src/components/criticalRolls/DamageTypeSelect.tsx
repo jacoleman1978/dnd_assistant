@@ -20,7 +20,7 @@ const DamageTypeSelect = ({ setGroupInputs }: DamageTypeProps) => {
     };
 
     return (
-        <section className="row-wrap-center-center sm-margin-vertical">
+        <section className="row-wrap-center-center sm-margin-vertical sm-entry-box">
             <label htmlFor="damage-type">Damage Type:</label>
             <select
                 id="damage-type"

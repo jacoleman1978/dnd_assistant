@@ -13,7 +13,7 @@ const AtLeastOneStatInput = ({
     setAtLeastOneStatIs,
 }: AtLeastOneStatInputProps) => {
     return (
-        <section className="row-wrap-center-center sm-margin-top">
+        <section className="row-wrap-center-center sm-margin-top sm-entry-box">
             <label htmlFor="atLeastOneStat">
                 At Least One Stat Is:
             </label>

@@ -15,8 +15,8 @@ const CritTypeRadio = ({ setCritType }: CritTypeRadioProps) => {
         setCritType(event.target.value as CritType);
     };
     return (
-        <section className="row-wrap-center-center sm-margin-vertical">
-            <p className="sm-margin-right">Crit Type:</p>
+        <section className="row-wrap-center-center sm-margin-vertical sm-radio-group">
+            <p className="sm-margin-right sm-screen-margin-right">Crit Type:</p>
             <fieldset className="radio-group">
                 <legend className="hidden">Crit Type</legend>
                 <div className="radio-button">

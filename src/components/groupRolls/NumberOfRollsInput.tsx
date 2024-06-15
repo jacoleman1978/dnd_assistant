@@ -20,7 +20,7 @@ const NumberOfRollsInput = ({ setGroupInputs }: NumberOfRollsInputProps) => {
         }));
     };
     return (
-        <section className="row-wrap-center-center">
+        <section className="row-wrap-center-center sm-entry-box">
             <label htmlFor="number-of-rolls">Number of Rolls:</label>
             <input
                 type="number"

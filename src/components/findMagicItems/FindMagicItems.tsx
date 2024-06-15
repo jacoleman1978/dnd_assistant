@@ -106,16 +106,16 @@ const FindMagicItems = () => {
                     </ul>
                 </section>
 
-                <section className="sm-margin-top">
-                    <p className="source">
+                <section className="column-align-start sm-margin-top">
+                    <p>
                         Default percentages to find magic items of each rarity:
                     </p>
                     <ul className="column-align-start sm-margin-left">
-                        <li className="source">Common: 50%</li>
-                        <li className="source">Uncommon: 30%</li>
-                        <li className="source">Rare: 15%</li>
-                        <li className="source">Very rare: 10%</li>
-                        <li className="source">Legendary: 1%</li>
+                        <li>Common: 50%</li>
+                        <li>Uncommon: 30%</li>
+                        <li>Rare: 15%</li>
+                        <li>Very rare: 10%</li>
+                        <li>Legendary: 1%</li>
                     </ul>
                 </section>
             </section>
