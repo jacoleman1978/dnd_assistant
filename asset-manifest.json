@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/dnd_assistant/static/css/main.145f2d30.css",
-    "main.js": "/dnd_assistant/static/js/main.336ec567.js",
+    "main.js": "/dnd_assistant/static/js/main.40c7005a.js",
     "static/js/453.8732674b.chunk.js": "/dnd_assistant/static/js/453.8732674b.chunk.js",
     "static/media/dice-background.png": "/dnd_assistant/static/media/dice-background.bb63dc58dfe13edab431.png",
     "index.html": "/dnd_assistant/index.html",
     "main.145f2d30.css.map": "/dnd_assistant/static/css/main.145f2d30.css.map",
-    "main.336ec567.js.map": "/dnd_assistant/static/js/main.336ec567.js.map",
+    "main.40c7005a.js.map": "/dnd_assistant/static/js/main.40c7005a.js.map",
     "453.8732674b.chunk.js.map": "/dnd_assistant/static/js/453.8732674b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.145f2d30.css",
-    "static/js/main.336ec567.js"
+    "static/js/main.40c7005a.js"
   ]
 }
