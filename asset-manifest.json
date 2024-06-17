@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/dnd_assistant/static/css/main.edd526a6.css",
-    "main.js": "/dnd_assistant/static/js/main.8f3a7c59.js",
+    "main.css": "/dnd_assistant/static/css/main.145f2d30.css",
+    "main.js": "/dnd_assistant/static/js/main.336ec567.js",
     "static/js/453.8732674b.chunk.js": "/dnd_assistant/static/js/453.8732674b.chunk.js",
+    "static/media/dice-background.png": "/dnd_assistant/static/media/dice-background.bb63dc58dfe13edab431.png",
     "index.html": "/dnd_assistant/index.html",
-    "main.edd526a6.css.map": "/dnd_assistant/static/css/main.edd526a6.css.map",
-    "main.8f3a7c59.js.map": "/dnd_assistant/static/js/main.8f3a7c59.js.map",
+    "main.145f2d30.css.map": "/dnd_assistant/static/css/main.145f2d30.css.map",
+    "main.336ec567.js.map": "/dnd_assistant/static/js/main.336ec567.js.map",
     "453.8732674b.chunk.js.map": "/dnd_assistant/static/js/453.8732674b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edd526a6.css",
-    "static/js/main.8f3a7c59.js"
+    "static/css/main.145f2d30.css",
+    "static/js/main.336ec567.js"
   ]
 }
