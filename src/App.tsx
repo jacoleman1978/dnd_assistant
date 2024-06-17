@@ -13,7 +13,7 @@ function App() {
             <header className="App-header">
                 <h1>D&D Assistant</h1>
             </header>
-            <main>
+            <main className="background-image">
                 <Router>
                     <NavTabs />
                     <Routes>
