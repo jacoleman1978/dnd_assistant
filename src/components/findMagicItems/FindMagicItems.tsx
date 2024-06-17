@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import ItemRaritySelect from "./ItemRaritySelect";
 import FindPercentModifierInput from "./FindPercentModifierInput";

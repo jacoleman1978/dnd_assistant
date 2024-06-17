@@ -1,3 +1,4 @@
+import React from "react";
 import { WhoTableCritted } from "../../staticData/interfaces";
 
 interface CritMissMessageProps {

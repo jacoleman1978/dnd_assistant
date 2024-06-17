@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import CharacterLevelInput from "./CharacterLevelInput";
 import DamageTypeSelect from "./DamageTypeSelect";
@@ -76,7 +76,7 @@ const CritHitsAndMisses = () => {
                     handleClick={handleRollCrit}
                 />
 
-                <div className="column-align-start">
+                <div className="column-align-start" data-testid="crit-message-single">
                     {critResult.map((result, index) => (
                         <p
                             key={`crit-${index}`}

@@ -72,7 +72,7 @@ const GroupRollStatsDisplay = ({
             {normalRollsRef.current.length > 0 ? (
                 <p className="group-roll-stats-section">
                     {`Who ${
-                        groupRollType === "Attacks" ? "Hit" : "Passed"
+                        groupRollType === "Attacks" ? (critType === "Hit" ? "Hit": "Missed") : (critType === "Hit" ? "Passed" : "Failed")
                     }: ${normalRollsRef.current.join(", ")}`}
                 </p>
             ) : null}
@@ -80,7 +80,7 @@ const GroupRollStatsDisplay = ({
             {groupRollType === "Attacks" &&
             critRolls.whoHasNormalCritical.length > 0 ? (
                 <p className="group-roll-stats-section">
-                    {`Who Had Normal Critical Hit: ${critRolls.whoHasNormalCritical.join(
+                    {`Who Had Normal Critical ${critType.toString()}: ${critRolls.whoHasNormalCritical.join(
                         ", "
                     )}`}
                 </p>

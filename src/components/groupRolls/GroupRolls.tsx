@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import GroupRollTypeRadio from "./GroupRollTypeRadio";
 import NumberOfRollsInput from "./NumberOfRollsInput";
@@ -100,7 +100,7 @@ const GroupRolls = () => {
             ) : null}
 
             <Button
-                label="Roll Critical"
+                label="Group Rolls"
                 className="submit-button"
                 handleClick={handleGroupRoll}
             />
