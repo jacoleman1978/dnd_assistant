@@ -4,12 +4,6 @@
     "private": true,
     "type": "module",
     "dependencies": {
-        "@emotion/react": "^11.11.4",
-        "@emotion/styled": "^11.11.5",
-        "@fontsource/roboto": "^5.0.13",
-        "@mui/base": "^5.0.0-beta.40",
-        "@mui/icons-material": "^5.15.19",
-        "@mui/material": "^5.15.19",
         "@types/jest": "^27.5.2",
         "@types/node": "^16.18.98",
         "@types/react": "^18.3.3",
